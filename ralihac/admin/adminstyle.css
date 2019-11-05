@@ -1,9 +1,14 @@
-html, body{
+html,body{
   height: 100%;
+  background: url("../images/siteimages/background.jpeg") no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
 }
 
 .card-style{
-  margin-top: 30%;
+margin-top: 30%;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.4) !important;
@@ -14,12 +19,55 @@ height: 100%;
 align-content: center;
 }
 
-body{
-    background: url("../images/siteimages/background.jpeg") no-repeat center center fixed;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-     height: 100%;
-     overflow: hidden;
+
+
+@media screen and (max-width: 768px){
+  .card-buttons{
+    margin-top: 15%;
+    margin-bottom: 15%;
+    border-radius: 20px;
+    opacity: 0.8;
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+    box-shadow: -1px 9px 40px -12px rgba(0,150,150,1);
+  }
+}
+
+@media screen and (min-width: 768px){
+  .card-buttons{
+    margin-top: 30%;
+    border-radius: 20px;
+    opacity: 0.8;
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+    box-shadow: -1px 9px 40px -12px rgba(0,150,150,1);
+  }
+}
+
+.card-buttons:hover{
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(255,255,255,.8);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(255,255,255,.8);
+  box-shadow: -1px 9px 40px -12px rgba(255,255,255,.8);
+  opacity: 1;
+}
+
+.buttoncss{
+  margin-top: 3%;
+  opacity: 0.9;
+  padding: 20px;
+  font-size: 30px;
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+  box-shadow: -1px 9px 40px -12px rgba(150,0,0,1);
+}
+
+.buttoncss:hover{
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(255,255,255,.8);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(255,255,255,.8);
+  box-shadow: -1px 9px 40px -12px rgba(255,255,255,.5);
+  opacity: 1;
+}
+
+.marginedit{
+  margin-top: 5%;
 }

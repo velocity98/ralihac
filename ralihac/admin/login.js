@@ -5,6 +5,7 @@ const password = document.forms["vform"]["password"];
 // Div errors
 const user_error = document.getElementById("user_error");
 const password_error = document.getElementById("password_error");
+const both_error = document.getElementById("both_error")
 
 // Eventlister
 username.addEventListener("blur", userVerify, true);
