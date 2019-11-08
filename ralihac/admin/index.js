@@ -6,3 +6,8 @@ function clickhere(){
   toggle.style.display = "none";
   toggle2.style.display = "block";
 }
+
+function goback(){
+  toggle2.style.display = "none";
+  toggle.style.display = "block";
+}

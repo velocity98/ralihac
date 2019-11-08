@@ -71,3 +71,13 @@ align-content: center;
 .marginedit{
   margin-top: 5%;
 }
+
+.card-hack{
+  margin-top: 15%;
+  margin-bottom: 15%;
+  opacity: 0.9;
+}
+
+.card-hack:hover{
+  opacity: 1;
+}
