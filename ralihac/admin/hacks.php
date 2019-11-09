@@ -8,20 +8,71 @@ $hackquery = $db->query($hackdb);
 <div class="container">
   <br>
   <?php if(isset($_GET['add'])): ?>
-    <div class="main">
-    <h1>Add Hack</h1><br/>
-    <hr>
-      <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
-      <div id="image_preview"><img id="previewing" src="noimage.png" /></div>
-        <div id="selectImage">
-          <label>Select Your Image</label><br/>
-          <input type="file" name="file" id="file" required />
-          <br>
-          <input type="submit" value="Upload" class="submit" />
-        </div>
-      </form>
+    <!--  -->
+    <div class="container">
+        <h2 class="text-light text-center">Add Hack</h2><br/>
+                <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-4 height">
+                        <div class="d-flex justify-content-center h-100">
+                          <div class="wrap1 bg-info">
+                            <div class="card-body">
+                              <div id="image_preview"><img id="previewing" src="../images/siteimages/no_image.png" style="height:14rem;width:19rem;" /></div>
+                              <br />
+                                  <div id="selectImage">
+                                    <label class="text-light" for="file">Select Your Image</label><br/>
+                                    <input type="file" name="file" id="file" required />
+                                    <div id="message"></div>
+                                  </div>
+
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-8 height">
+                      <div class="justify-content-center h-100">
+                        <div class="wrap2 bg-info" style="width: 100%;">
+                          <div class="card-body">
+
+                            <div class="form-group row">
+                              <label class="text-light col-form-label col-md-4" for="hack">Hack Title: </label>
+                              <div class="col-md-8">
+                                <input type="text" class="form-control" name="hack" id="hack" />
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label class="text-light col-form-label col-md-4" for="categories">Hack Category: </label>
+                                <div class="col-md-8">
+                                  <select id="categories" class="form-control">
+                                    <option>
+                                      Test
+                                    </option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label class="text-light col-form-label col-md-4" for="description">Hack Description: </label>
+                                <div class="col-md-8">
+                                  <textarea id="description" class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-right">
+                          <a href="#" class="btn btn-light border-dark" id="preview">Preview</a>
+                          <input type="submit" value="Upload" class="submit btn btn-success border-dark" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            <div id="message"></div>
+
+
     </div>
-    <div id="message"></div>
+    <!--  -->
   <?php elseif(isset($_GET['edit'])): ?>
 
   <?php elseif(isset($_GET['delete'])): ?>

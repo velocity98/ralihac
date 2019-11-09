@@ -25,7 +25,7 @@ $(document).ready(function (e) { // Ajax call for Image
       var match = ["image/jpeg","image/jpg"];
       if(!((imagefile==match[0]) || (imagefile==match[1])))
         {
-          $('#previewing').attr('src','noimage.png');
+          $('#previewing').attr('src','../images/siteimages/no_image.png'); //changes
           $("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg and jpg images type allowed</span>");
           return false;
         }

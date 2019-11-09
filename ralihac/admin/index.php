@@ -51,7 +51,7 @@ include './includes/nav.php';
 
    <div class="col-md-12">
      <div class="d-flex jusify-content-center h-100">
-      <button class="btn btn-danger buttoncss btn-block border-secondary"><span class="fas fa-clipboard-list"></span> Categories</button>
+      <a href="categories.php" class="btn btn-danger buttoncss btn-block border-secondary"><span class="fas fa-clipboard-list"></span> Categories</a>
     </div>
   </div>
 

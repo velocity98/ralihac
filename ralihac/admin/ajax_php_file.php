@@ -31,7 +31,7 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
 }
 else
 {
-echo "<span id='invalid'>***Invalid file Size or Type***<span>";
+echo "<span id='invalid' class='text-warning'>***Invalid file Size or Type***<span>";
 }
 }
 ?>
