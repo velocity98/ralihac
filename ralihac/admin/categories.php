@@ -2,30 +2,55 @@
 require_once '../system/initialize.php';
 include './includes/head.php';
 include './includes/nav.php';
-
+$category = ((isset($_POST['aesubmit']))?sanitize($_POST['aesubmit']):'');
 if (isset($_POST['aesubmit'])){
-  $addquery = ("INSERT INTO category_db (category_name, category_date) VALUES (?,?)") ;
-  $stmt = $db->prepare($addquery);
-  $stmt->bind_param('ss', $category, $date);
-  $stmt->execute();
-  $stmt->close();
+
 }
  ?>
 <div class="container">
+  <!-- Modal Add -->
+  <div class="modal fade" id="addmodal">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        <h4 class="modal-title">New Category</h4>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <input class="form-control" id="categoryText" placeholder="Enter Category Name..."  type="text" />
+          <small id="errorcheck1"></small>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger border-dark" data-dismiss="modal">Close</button>
+        <input type="button" class="btn btn-success border-dark" id="addCategory" onclick="addCategory()" value="Add">
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+
+
   <br />
   <h2 class="text-light text-center">Categories</h2>
   <br />
-  <div class="row justify-content-center">
-    <form class="form-inline" id="form" action="categories.php<?php echo((isset($_GET['edit']))?'?edit='.$edit_id:''); ?>" method="post">
-      <div class="form-group">
-          <input type="text" class="form-control" name="category" value="<?php echo $category; ?>" />&nbsp<button name="aesubmit" type="submit" class="btn btn-info"><i class="fas fa-plus"></i> Add</button>
-      </div>
-    </form>
+  <div class="row">
+    <div class="container text-right">
+          <button name="add" id="addModal" onclick="modalShow()" class="btn btn-info border-light"><i class="fas fa-plus"></i> Add Category</button>
+    </div>
+
   </div>
   <br />
 
   <div class="table-responsive">
-    <table class="table text-light tableborder">
+    <table class="table text-light tableborder" id="tabledata">
       <thead class="bg-primary">
         <th></th>
         <th>Categories</th>
