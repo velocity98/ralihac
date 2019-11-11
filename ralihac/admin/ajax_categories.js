@@ -65,7 +65,7 @@ function deleteThis(id){
         edit: id
       },
       success: function(data){
-        $('body').append(data);
+        $('body').prepend(data);
         $('#editmodal').modal('toggle');
       },
       error: function(response){
