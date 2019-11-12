@@ -12,18 +12,43 @@ function loadData(){
   });
 }
 
-function deleteThis(id){
-    $.ajax({
-      url: 'ajax_categories.php',
-      method: 'POST',
-      data:{
-        delete: id
-      },
-      success: function (data){
-        loadData();
+$('#delete').alert({
+    title: 'Alert!',
+    content: 'Simple alert!',
+});
 
-      },
-    });
+function deleteThis(id){
+
+  $.confirm({
+    title: 'Confirm!',
+    content: 'Are you sure you want to delete this category?',
+    buttons: {
+        confirm: function () {
+            $.ajax({
+            url: 'ajax_categories.php',
+            method: 'POST',
+            data:{
+              delete: id
+            },
+            success: function (data){
+              loadData();
+            },
+          });
+            $.alert('Category Deleted!');
+        },
+        cancel:{
+          btnClass: 'btn-danger',
+          action:
+          function () {
+          $.alert('Canceled!');
+        }
+
+
+        },
+    }
+});
+
+
   }
 
   function modalShow(){
@@ -77,6 +102,12 @@ function deleteThis(id){
   function editCategory(id){
     //second AJAX for edit
     var names = $('#categoryTextEdit').val();
+    if(names == ''){
+      $('#categoryTextEdit').css('border', '1px solid red');
+      $('#errorcheck2').html('Enter Category');
+      $('#errorcheck2').css('color', 'red');
+      return;
+    }else{
     $.ajax({
       url: 'ajax_categories.php',
       method: 'POST',
@@ -93,4 +124,5 @@ function deleteThis(id){
         alert(response);
       }
     });
+  }
   }
