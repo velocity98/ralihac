@@ -4,6 +4,8 @@ include './includes/head.php';
 include './includes/nav.php';
 $hackdb = ("SELECT * FROM hack_db WHERE hack_archive = '0'");
 $hackquery = $db->query($hackdb);
+$categorydb = ("SELECT * FROM category_db ORDER BY category_name");
+$categoryquery = $db->query($categorydb);
  ?>
 <div class="container">
   <br>
@@ -38,6 +40,7 @@ $hackquery = $db->query($hackdb);
                               <label class="text-light col-form-label col-md-4" for="hack">Hack Title: </label>
                               <div class="col-md-8">
                                 <input type="text" class="form-control" name="hack" id="hack" />
+                                <small id='noName'></small>
                               </div>
                             </div>
 
@@ -45,10 +48,12 @@ $hackquery = $db->query($hackdb);
                               <label class="text-light col-form-label col-md-4" for="categories">Hack Category: </label>
                                 <div class="col-md-8">
                                   <select id="categories" class="form-control">
-                                    <option>
-                                      Test
-                                    </option>
+                                    <option></option>
+                                  <?php while($x = mysqli_fetch_assoc($categoryquery)): ?>
+                                    <option><?php echo $x['category_name']?></option>
+                                  <?php endwhile; ?>
                                   </select>
+                                  <small id='noNameTwo'></small>
                                 </div>
                             </div>
 
@@ -56,6 +61,7 @@ $hackquery = $db->query($hackdb);
                               <label class="text-light col-form-label col-md-4" for="description">Hack Description: </label>
                                 <div class="col-md-8">
                                   <textarea id="description" class="form-control" rows="5"></textarea>
+                                  <small id='noNameThree'></small>
                                 </div>
                             </div>
 

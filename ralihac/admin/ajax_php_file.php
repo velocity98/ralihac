@@ -1,23 +1,27 @@
 <?php
+require_once "../system/initialize.php";
 if(isset($_FILES["file"]["type"]))
 {
 $validextensions = array("jpeg", "jpg");
-$temporary = explode(".", $_FILES["file"]["name"]); // create array
-$file_extension = end($temporary); // get last element in array
+$temporary = explode(".", $_FILES["file"]["name"]);
+$file_extension = end($temporary);
 if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 100000) && in_array($file_extension, $validextensions)) {
   if ($_FILES["file"]["error"] > 0){
   echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
   }
   else{
-    if (file_exists("../images/hackimages" . $_FILES["file"]["name"])) {
-      echo $_FILES["file"]["name"] . " <span id='invalid'><b>already exists.</b></span> ";
-    }
-    else{
-      $sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-      $targetPath = "../images/hackimages/".$_FILES['file']['name']; // Target path where file is to be stored
+      $sourcePath = $_FILES['file']['tmp_name'];
+      $targetPath = "../images/hackimages/".md5(microtime()).$_FILES['file']['name'];
+      $targetPath = sanitize($targetPath);
+
+      $hackName = $_POST['hackTitle'];
+
+      $query = "INSERT INTO hack_db (hack_image, hack_name) VALUES (??)"; //fix ADD
+      $stmt = $db->prepare($query);
+      $stmt->bind_param('ss', $targetPath, $hackName);
+      $stmt->execute();
+      $stmt->close();
       move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-      echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
-    }
   }
 }
 else
