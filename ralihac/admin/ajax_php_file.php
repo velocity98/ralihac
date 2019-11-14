@@ -13,12 +13,16 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
       $sourcePath = $_FILES['file']['tmp_name'];
       $targetPath = "../images/hackimages/".md5(microtime()).$_FILES['file']['name'];
       $targetPath = sanitize($targetPath);
+      var_dump($_POST);
+      $hackName = $_POST['hack'];
+      $hackCategory = $_POST['categories'];
+      $hackDescription = $_POST['description'];
+      $ralihac = 'Ralihac';
+      $date = date("Y-m-d H:i:s");
 
-      $hackName = $_POST['hackTitle'];
-
-      $query = "INSERT INTO hack_db (hack_image, hack_name) VALUES (??)"; //fix ADD
+      $query = "INSERT INTO hack_db (hack_image, hack_name, hack_category, hack_description, hack_user, hack_date) VALUES (?,?,?,?,?,?)"; //fix ADD
       $stmt = $db->prepare($query);
-      $stmt->bind_param('ss', $targetPath, $hackName);
+      $stmt->bind_param('ssssss', $targetPath, $hackName, $hackCategory, $hackDescription, $ralihac, $date);
       $stmt->execute();
       $stmt->close();
       move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
@@ -26,7 +30,7 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
 }
 else
 {
-echo "<span id='invalid' class='text-warning'>***Invalid file Size or Type***<span>";
+echo "<span id='invalid' class='text-danger'>*Insert valid photo*<span>";
 }
 }
 ?>

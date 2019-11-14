@@ -23,7 +23,7 @@ $categoryquery = $db->query($categorydb);
                               <br />
                                   <div id="selectImage">
                                     <label class="text-light" for="file">Select Your Image</label><br/>
-                                    <input type="file" name="file" id="file" required />
+                                    <input type="file" name="file" id="file"/>
                                     <div id="message"></div>
                                   </div>
 
@@ -47,7 +47,7 @@ $categoryquery = $db->query($categorydb);
                             <div class="form-group row">
                               <label class="text-light col-form-label col-md-4" for="categories">Hack Category: </label>
                                 <div class="col-md-8">
-                                  <select id="categories" class="form-control">
+                                  <select id="categories" class="form-control" name="categories">
                                     <option></option>
                                   <?php while($x = mysqli_fetch_assoc($categoryquery)): ?>
                                     <option><?php echo $x['category_name']?></option>
@@ -60,7 +60,7 @@ $categoryquery = $db->query($categorydb);
                             <div class="form-group row">
                               <label class="text-light col-form-label col-md-4" for="description">Hack Description: </label>
                                 <div class="col-md-8">
-                                  <textarea id="description" class="form-control" rows="5"></textarea>
+                                  <textarea id="description" name="description" class="form-control" rows="5"></textarea>
                                   <small id='noNameThree'></small>
                                 </div>
                             </div>
@@ -92,10 +92,14 @@ $categoryquery = $db->query($categorydb);
     <?php while($hacks = mysqli_fetch_assoc($hackquery)):?>
       <div class="col-md-3">
         <div class="card border-primary card-hack bg-info text-light" style="width: 17rem;">
-          <img src="..." class="card-img-top bg-light" alt="..." style="height: 14rem">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <img src="<?php echo $hacks['hack_image']?>" class="card-img-top bg-light" alt="..." style="height: 14rem">
+            <div class="card-footer bg-danger">
+              <h5 class="card-title "><?php echo $hacks['hack_name']?></h5>
+            </div>
+            <div class="card-body card-body-css">
+              <p class="card-text"><?php custom_echo($hacks['hack_description'],114) ?></p>
+            </div>
+            <div class="card-footer">
               <a href="hacks.php?edit=" class="btn btn-primary border-dark">Edit</a>&nbsp<a href="hacks.php?delete=" class="btn btn-danger border-dark">Delete</a>
             </div>
         </div>

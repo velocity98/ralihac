@@ -1,4 +1,5 @@
 $(document).ready(function (e) { // Ajax call for Image
+    $('.card-body').css('display','none');
   $("#uploadimage").on('submit',(function(e) {
     e.preventDefault();
     $("#message").empty();
@@ -15,7 +16,7 @@ $(document).ready(function (e) { // Ajax call for Image
       $.ajax({
         url: "ajax_php_file.php", // Url to which the request is send
         type: "POST",             // Type of request to be send, called as method
-        data: new FormData(this),
+        data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
         contentType: false,       // The content type used when sending data to the server.
         cache: false,             // To unable request pages to be cached
         processData:false,        // To send DOMDocument or non processed data file it is set to false
@@ -69,4 +70,14 @@ $(document).ready(function (e) { // Ajax call for Image
     $('#previewing').attr('width', '250px');
     $('#previewing').attr('height', '230px');
   };
+
+  $('.card-hack').hover(
+      function(){
+        $('.card-body', this).slideDown(100);
+      },
+      function(){
+        $('.card-body', this).slideUp(100);
+      }
+  )
+
 });

@@ -11,4 +11,16 @@ function sanitize($wrong){
   return htmlentities($wrong, ENT_QUOTES, "UTF-8");
 }
 
+function custom_echo($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
  ?>

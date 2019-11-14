@@ -85,6 +85,9 @@ align-content: center;
   opacity: 0.9;
 }
 
+.card-body-css{
+  height: 140px;
+}
 .card-hack:hover{
   opacity: 1;
 }
