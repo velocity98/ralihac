@@ -1,5 +1,5 @@
 $(document).ready(function (e) { // Ajax call for Image
-    $('.card-body').css('display','none');
+  loadData();
   $("#uploadimage").on('submit',(function(e) {
     e.preventDefault();
     $("#message").empty();
@@ -22,7 +22,7 @@ $(document).ready(function (e) { // Ajax call for Image
         processData:false,        // To send DOMDocument or non processed data file it is set to false
         success: function(data)   // A function to be called if request succeeds
           {
-            $("#message").html(data);hackCategory
+            $("#message").html(data);
           }
       });
     }
@@ -71,13 +71,53 @@ $(document).ready(function (e) { // Ajax call for Image
     $('#previewing').attr('height', '230px');
   };
 
-  $('.card-hack').hover(
-      function(){
-        $('.card-body', this).slideDown(100);
-      },
-      function(){
-        $('.card-body', this).slideUp(100);
-      }
-  )
+  $(document).on('mouseenter', '#card-hack', function() {
+     $('#card-body', this).slideDown(100);
+  });
+  $(document).on('mouseleave', '#card-hack', function() {
+      $('#card-body', this).slideUp(100);
+  });
+
+
 
 });
+
+function loadData(){
+  $.ajax({
+    url: 'ajax_admin_hacks.php',
+    method: 'GET',
+    success: function (data){
+      $('#hackView').html(data);
+    }
+  });
+}
+
+
+function deleteHack(id){
+      $.confirm({
+        title: 'Confirm!',
+        content: 'Are you sure you want to delete this Hack?',
+        buttons: {
+            confirm: function () {
+                $.ajax({
+                url: 'ajax_admin_hacks.php',
+                method: 'POST',
+                data:{
+                  delete: id
+                },
+                success: function (data){
+                  loadData();
+                  $.alert('Hack Deleted!');
+                },
+              });
+            },
+            cancel:{
+              btnClass: 'btn-danger',
+              action:
+              function () {
+              $.alert('Canceled!');
+            }
+            },
+        }
+    });
+  }

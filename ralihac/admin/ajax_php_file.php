@@ -5,7 +5,7 @@ if(isset($_FILES["file"]["type"]))
 $validextensions = array("jpeg", "jpg");
 $temporary = explode(".", $_FILES["file"]["name"]);
 $file_extension = end($temporary);
-if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 100000) && in_array($file_extension, $validextensions)) {
+if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 1200000) && in_array($file_extension, $validextensions)) {
   if ($_FILES["file"]["error"] > 0){
   echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
   }
@@ -13,7 +13,6 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
       $sourcePath = $_FILES['file']['tmp_name'];
       $targetPath = "../images/hackimages/".md5(microtime()).$_FILES['file']['name'];
       $targetPath = sanitize($targetPath);
-      var_dump($_POST);
       $hackName = $_POST['hack'];
       $hackCategory = $_POST['categories'];
       $hackDescription = $_POST['description'];

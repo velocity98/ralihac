@@ -18,37 +18,35 @@ $('#delete').alert({
 });
 
 function deleteThis(id){
+      $.confirm({
+        title: 'Confirm!',
+        content: 'Are you sure you want to delete this category?',
+        buttons: {
+            confirm: function () {
+                $.ajax({
+                url: 'ajax_categories.php',
+                method: 'POST',
+                data:{
+                  delete: id
+                },
+                success: function (data){
+                  loadData();
+                  $.alert('Category Deleted!');
+                },
+              });
 
-  $.confirm({
-    title: 'Confirm!',
-    content: 'Are you sure you want to delete this category?',
-    buttons: {
-        confirm: function () {
-            $.ajax({
-            url: 'ajax_categories.php',
-            method: 'POST',
-            data:{
-              delete: id
             },
-            success: function (data){
-              loadData();
+            cancel:{
+              btnClass: 'btn-danger',
+              action:
+              function () {
+              $.alert('Canceled!');
+            }
+
+
             },
-          });
-            $.alert('Category Deleted!');
-        },
-        cancel:{
-          btnClass: 'btn-danger',
-          action:
-          function () {
-          $.alert('Canceled!');
         }
-
-
-        },
-    }
-});
-
-
+    });
   }
 
   function modalShow(){

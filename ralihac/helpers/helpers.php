@@ -15,12 +15,12 @@ function custom_echo($x, $length)
 {
   if(strlen($x)<=$length)
   {
-    echo $x;
+    return $x;
   }
   else
   {
     $y=substr($x,0,$length) . '...';
-    echo $y;
+    return $y;
   }
 }
  ?>
