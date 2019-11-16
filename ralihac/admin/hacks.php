@@ -83,8 +83,8 @@ $categoryquery = $db->query($categorydb);
 
   <?php else: ?>
   <h2 class="text-center text-light">Hacks</h2>
-  <div class="text-right">
-  <a href="hacks.php?add=1" class="btn btn-danger border-light"><i class="fas fa-plus"></i> Add New Hack</a>
+  <div class="text-left">
+  <a href="hacks.php?add=1" class="btn btn-light border-primary text-primary"><i class="fas fa-plus"></i> Add New Hack</a>
   </div>
   <div class="row" id='hackView'>
 

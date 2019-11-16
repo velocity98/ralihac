@@ -49,7 +49,6 @@ $date = date("Y-m-d H:i:s");
               <input class='form-control' id='categoryTextEdit' value='".$category['category_name']."' placeholder='Enter Category Name...'  type='text' />
               <small id='errorcheck2'></small>
             </div>
-
           </div>
 
           <div class='modal-footer'>
@@ -59,9 +58,9 @@ $date = date("Y-m-d H:i:s");
 
         </div>
       </div>
-      </div>";
-      $stmt->close();
-      exit($editOutput);
+    </div>";
+    $stmt->close();
+    exit($editOutput);
   }
   if(isset($_POST['edit2'])){
     $edit_id = $_POST['edit2'];

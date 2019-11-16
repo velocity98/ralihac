@@ -4,7 +4,6 @@ $(document).ready(function (e) { // Ajax call for Image
     e.preventDefault();
     $("#message").empty();
 
-
     var hackTitle = $('#hack');
     var hackCategory = $('#categories');
     var hackDescription = $('#description');
@@ -78,8 +77,6 @@ $(document).ready(function (e) { // Ajax call for Image
       $('#card-body', this).slideUp(100);
   });
 
-
-
 });
 
 function loadData(){
@@ -91,7 +88,6 @@ function loadData(){
     }
   });
 }
-
 
 function deleteHack(id){
       $.confirm({
@@ -120,4 +116,21 @@ function deleteHack(id){
             },
         }
     });
+  }
+
+  function editHack(id){
+      $.ajax({
+        url: 'ajax_admin_hacks.php',
+        method: 'POST',
+        data:{
+          edit: id
+        },
+        success: function(data){
+          $('body').prepend(data);
+          $('#editModal').modal('toggle');
+        },
+        error: function(response){
+          alert(response);
+        }
+      });
   }
