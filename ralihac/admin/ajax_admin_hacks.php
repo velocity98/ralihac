@@ -23,8 +23,8 @@
 
     $outputModal = '';
     $outputModal .=
-      "<div class='modal fade' id='editModal'>
-        <div class='modal-dialog'>
+      "<div class='modal fade modal' id='editModal'>
+        <div class='modal-dialog mw-100 w-50'>
           <div class='modal-content'>
 
             <div class='modal-header'>
@@ -34,7 +34,7 @@
             <div class='modal-body'>
               <div class='row'>
                 <div class='col-md-6'>
-                  <div class='card card-hack bg-secondary text-light' style='width: 17rem; opacity: 1;'>
+                  <div class='card bg-secondary text-light' style='width: 17rem; opacity: 1;'>
                     <img src='".$edit_hack['hack_image']."' class='card-img-top bg-light' alt='...' style='height: 14rem' >
                       <div class='card-header bg-secondary' style='height:;'>
                         <span>".$edit_hack['hack_name']."</span>
@@ -46,6 +46,32 @@
                 </div>
 
                 <div class='col-md-6'>
+
+                    <div class='form-group row'>
+                      <label class='col-form-label col-md-12' for='hackEdit'>Hack Title: </label>
+                      <div class='col-md-12'>
+                        <input type='text' class='form-control' name='hackEdit' id='hackEdit' />
+                        <small id='noNameEdit'></small>
+                      </div>
+                    </div>
+
+                    <div class='form-group row'>
+                      <label class='col-form-label col-md-12' for='categoriesEdit'>Hack Category: </label>
+                        <div class='col-md-12'>
+                          <select id='categoriesEdit' class='form-control' name='categories'>
+                            <option></option>
+                          </select>
+                          <small id='noNameTwoEdit'></small>
+                        </div>
+                    </div>
+
+                    <div class='form-group row'>
+                      <label class='col-form-label col-md-12' for='descriptionEdit'>Hack Description: </label>
+                        <div class='col-md-12'>
+                          <textarea id='descriptionEdit' name='descriptionEdit' class='form-control' rows='5'></textarea>
+                          <small id='noNameThreeEdit'></small>
+                        </div>
+                    </div>
 
                 </div>
 
