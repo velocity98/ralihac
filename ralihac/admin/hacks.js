@@ -77,6 +77,15 @@ $(document).ready(function (e) { // Ajax call for Image
       $('#card-body', this).slideUp(100);
   });
 
+  $(document).on('keyup', '#descriptionEdit', function(){
+    $('#descriptionChange').text($(this).val());
+  });
+
+  $(document).on('keyup', '#hackEdit', function(){
+    $('#hackChange').text($(this).val());
+  });
+
+
 });
 
 function loadData(){

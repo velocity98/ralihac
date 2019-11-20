@@ -21,6 +21,12 @@
     $result = $stmt->get_result();
     $edit_hack = $result->fetch_assoc();
 
+    $category_db = ("SELECT * FROM category_db");
+    $category_query = $db->query($category_db);
+
+
+
+
     $outputModal = '';
     $outputModal .=
       "<div class='modal fade modal' id='editModal'>
@@ -37,10 +43,10 @@
                   <div class='card bg-secondary text-light' style='width: 17rem; opacity: 1;'>
                     <img src='".$edit_hack['hack_image']."' class='card-img-top bg-light' alt='...' style='height: 14rem' >
                       <div class='card-header bg-secondary' style='height:;'>
-                        <span>".$edit_hack['hack_name']."</span>
+                        <span id='hackChange'>".$edit_hack['hack_name']."</span>
                       </div>
                       <div class='card-body'>
-                        <p class='card-text'>".$edit_hack['hack_description']."</p>
+                        <p class='card-text' id='descriptionChange'>".$edit_hack['hack_description']."</p>
                       </div>
                   </div>
                 </div>
@@ -50,7 +56,7 @@
                     <div class='form-group row'>
                       <label class='col-form-label col-md-12' for='hackEdit'>Hack Title: </label>
                       <div class='col-md-12'>
-                        <input type='text' class='form-control' name='hackEdit' id='hackEdit' />
+                        <input type='text' class='form-control' name='hackEdit' id='hackEdit' value='".$edit_hack['hack_name']."'/>
                         <small id='noNameEdit'></small>
                       </div>
                     </div>
@@ -58,8 +64,13 @@
                     <div class='form-group row'>
                       <label class='col-form-label col-md-12' for='categoriesEdit'>Hack Category: </label>
                         <div class='col-md-12'>
-                          <select id='categoriesEdit' class='form-control' name='categories'>
-                            <option></option>
+                          <select id='categoriesEdit' class='form-control' name='categories'>";
+
+                          while($x = mysqli_fetch_assoc($category_query)){
+                              $outputModal .=  "<option ".(($x['category_name'] == $edit_hack['hack_category']) ? 'selected' : '').">".$x['category_name']."</option>";
+                          }
+
+                $outputModal .=  "
                           </select>
                           <small id='noNameTwoEdit'></small>
                         </div>
@@ -68,7 +79,7 @@
                     <div class='form-group row'>
                       <label class='col-form-label col-md-12' for='descriptionEdit'>Hack Description: </label>
                         <div class='col-md-12'>
-                          <textarea id='descriptionEdit' name='descriptionEdit' class='form-control' rows='5'></textarea>
+                          <textarea id='descriptionEdit' name='descriptionEdit' class='form-control' rows='5'>".$edit_hack['hack_description']."</textarea>
                           <small id='noNameThreeEdit'></small>
                         </div>
                     </div>
@@ -85,7 +96,7 @@
           </div>
         </div>
       </div>";
-    $stmt->close();
+
     exit($outputModal);
   }
   else{
