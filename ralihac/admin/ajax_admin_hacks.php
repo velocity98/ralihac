@@ -53,6 +53,7 @@
 
                 <div class='col-md-6'>
 
+                <form id='editPost' action='hacks.php' method='post' enctype='multipart/form-data'>
                     <div class='form-group row'>
                       <label class='col-form-label col-md-12' for='hackEdit'>Hack Title: </label>
                       <div class='col-md-12'>
@@ -84,20 +85,38 @@
                         </div>
                     </div>
 
+                    </div>
+
+                  </div>
                 </div>
 
-              </div>
-            </div>
+                <div class='modal-footer'>
+                  <button type='button' class='btn btn-danger border-dark' data-dismiss='modal'>Close</button>
+                  <input type='button' class='btn btn-success border-dark' id='editCategory' onclick='editHackModal(".$edit_hack['hack_id'].")' value='Save Changes'>
+                </div>
 
-            <div class='modal-footer'>
-
-            </div>
+                </form>
 
           </div>
         </div>
       </div>";
 
     exit($outputModal);
+  }
+  if(isset($_POST['editFinal'])){
+    $edit_hack_id = $_POST['editFinal'];
+    $edit_hack_id = sanitize($edit_hack_id);
+    $edit_hackName = $_POST['hackEditName'];
+    $edit_hackName = sanitize($edit_hackName);
+    $edit_hackCategory = $_POST['hackEditCategory'];
+    $edit_hackCategory = sanitize($edit_hackCategory);
+    $edit_hackDescription = $_POST['hackEditDescription'];
+    $edit_hackDescription = sanitize($edit_hackDescription);
+    $edit_hackQuery = ("UPDATE hack_db SET hack_name = ?, hack_category = ?, hack_description = ? WHERE hack_id = ?");
+    $stmt = $db->prepare($edit_hackQuery);
+    $stmt->bind_param('sssi', $edit_hackName, $edit_hackCategory, $edit_hackDescription, $edit_hack_id);
+    $stmt->execute();
+    $stmt->close();
   }
   else{
     $output = '';

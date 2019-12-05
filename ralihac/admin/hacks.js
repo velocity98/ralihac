@@ -27,18 +27,7 @@ $(document).ready(function (e) { // Ajax call for Image
     }
   }));
 
-  function isNotEmpty(call, name){
-    if (call.val() == ''){
-      call.css('border', '1px solid red');
-      name.css('color', 'red')
-      name.html('Enter Value');
-      return false;
-    }else{
-      call.css('border', '');
-      name.html('');
-      return true;
-    }
-  }
+
 
   // Function to preview image after validation (Validation Only)
   $(function() {
@@ -142,4 +131,44 @@ function deleteHack(id){
           alert(response);
         }
       });
+  }
+
+  function isNotEmpty(call, name){
+    if (call.val() == ''){
+      call.css('border', '1px solid red');
+      name.css('color', 'red')
+      name.html('Enter Value');
+      return false;
+    }else{
+      call.css('border', '');
+      name.html('');
+      return true;
+    }
+  }
+
+  function editHackModal(id){
+    var hackName = $('#hackEdit');
+    var noNameOne = $('#noNameEdit');
+    var hackCategory = $('#categoriesEdit');
+    var noNameTwo = $('#noNameTwoEdit');
+    var hackDescription = $('#descriptionEdit');
+    var noNameThree = $('#noNameThreeEdit');
+    if(isNotEmpty(hackName, noNameOne) && isNotEmpty(hackCategory, noNameTwo) && isNotEmpty(hackDescription, noNameThree)){
+      $.ajax({
+        url: 'ajax_admin_hacks.php',
+        method: 'POST',
+        data: {
+          editFinal: id,
+          hackEditName: hackName.val(),
+          hackEditCategory: hackCategory.val(),
+          hackEditDescription: hackDescription.val()
+        },
+        success: function(){
+          loadData();
+        },
+        error: function(response){
+          alert(response);
+        }
+      });
+    }
   }
