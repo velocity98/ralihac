@@ -6,9 +6,10 @@
   if(isset($_POST['delete'])){
     $delete_id = $_POST['delete'];
     $delete_id = sanitize($delete_id);
-    $deletequery ="DELETE FROM hack_db WHERE hack_id = ? ";
+    $archiveFlag = 1;
+    $deletequery =("UPDATE hack_db SET hack_archive = ? WHERE hack_id = ?");
     $stmt = $db->prepare($deletequery);
-    $stmt->bind_param('i', $delete_id);
+    $stmt->bind_param('ii', $archiveFlag, $delete_id);
     $stmt->execute();
     $stmt->close();
   }
@@ -23,9 +24,6 @@
 
     $category_db = ("SELECT * FROM category_db");
     $category_query = $db->query($category_db);
-
-
-
 
     $outputModal = '';
     $outputModal .=

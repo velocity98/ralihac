@@ -97,14 +97,12 @@ align-content: center;
 .wrap1{
   border-radius: 3%;
   border-style: solid;
-  border-color: white;
   border-width: 1px;
 }
 
 .wrap2{
   border-radius: 1%;
   border-style: solid;
-  border-color: white;
   border-width: 1px;
 }
 
@@ -114,9 +112,8 @@ align-content: center;
 }
 
 #previewing{
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
+  height:14rem; /* might change*/
+  width:19rem;
 }
 
 .file{

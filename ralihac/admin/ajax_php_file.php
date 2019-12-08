@@ -29,7 +29,7 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
 }
 else
 {
-echo "<span id='invalid' class='text-danger'>*Insert valid photo*<span>";
+echo "<br><p id='error' class='text-danger'>Please Select A valid Image File</p>"."<h5 class='text-light'>Note:</h5>"."<span id='error_message' class='text-light'>Only jpeg and jpg images type allowed</span>";
 }
 }
 ?>

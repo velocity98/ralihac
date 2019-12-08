@@ -27,19 +27,17 @@ $(document).ready(function (e) { // Ajax call for Image
     }
   }));
 
-
-
   // Function to preview image after validation (Validation Only)
   $(function() {
     $("#file").change(function() {
-      $("#message").empty(); // To remove the previous error message
+      $("#message").empty();
       var file = this.files[0];
       var imagefile = file.type;
       var match = ["image/jpeg","image/jpg"];
       if(!((imagefile==match[0]) || (imagefile==match[1])))
         {
-          $('#previewing').attr('src','../images/siteimages/no_image.png'); //changes
-          $("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg and jpg images type allowed</span>");
+          $('#previewing').attr('src','../images/siteimages/no_image.png');
+          $("#message").html("<br><p id='error' class='text-danger'>Please Select A valid Image File</p>"+"<h5 class='text-light'>Note:</h5>"+"<span id='error_message' class='text-light'>Only jpeg and jpg images type allowed</span>");
           return false;
         }
       else
@@ -58,6 +56,8 @@ $(document).ready(function (e) { // Ajax call for Image
     $('#previewing').attr('width', '250px');
     $('#previewing').attr('height', '230px');
   };
+
+
 
   $(document).on('mouseenter', '#card-hack', function() {
      $('#card-body', this).slideDown(100);
@@ -136,7 +136,6 @@ function deleteHack(id){
   function isNotEmpty(call, name){
     if (call.val() == ''){
       call.css('border', '1px solid red');
-      name.css('color', 'red')
       name.html('Enter Value');
       return false;
     }else{
@@ -172,3 +171,11 @@ function deleteHack(id){
       });
     }
   }
+
+  $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    if (fileName.length > 10){
+      fileName = fileName.substring(0,21) + '...';
+    }
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
