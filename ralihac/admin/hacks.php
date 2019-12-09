@@ -1,5 +1,8 @@
 <?php
 require_once '../system/initialize.php';
+if(!is_logged_in()){
+  login_redirect();
+}
 include './includes/head.php';
 include './includes/nav.php';
 $categorydb = ("SELECT * FROM category_db ORDER BY category_name");
@@ -77,7 +80,7 @@ $categoryquery = $db->query($categorydb);
   <?php else: ?>
   <h2 class="text-center text-light">Hacks</h2>
   <div class="text-left">
-  <a href="hacks.php?add=1" class="btn btn-light border-primary text-primary"><i class="fas fa-plus"></i> Add New Hack</a>
+  <a href="hacks.php?add=1" class="btn btn-info border-light text-light"><i class="fas fa-plus"></i> Add New Hack</a>
   </div>
   <div class="row" id='hackView'>
 

@@ -78,11 +78,11 @@ else{
   $output = '';
    while($category = mysqli_fetch_assoc($results)){
      $date = new datetime($category['category_date']);
-     $output .= "<tr class='bg-info'>
+     $output .= "<tr>
                    <td>
                    <div class='text-nowrap'>
-                   <button id='edit' name='edit' onclick='editModal(".$category['category_id'].")' class='btn btn-sm btn-light'><i class='fas fa-edit'></i></button>
-                   <button id='delete' name='delete' onclick='deleteThis(".$category['category_id'].")' class='btn btn-sm btn-danger'><i class='fas fa-trash'></i></button>
+                   <button id='edit' name='edit' onclick='editModal(".$category['category_id'].")' class='btn btn-sm btn-light border border-primary'><i class='fas fa-edit'></i></button>
+                   <button id='delete' name='delete' onclick='deleteThis(".$category['category_id'].")' class='btn btn-sm btn-danger border border-light'><i class='fas fa-trash'></i></button>
                    </div>
 
                    </td>

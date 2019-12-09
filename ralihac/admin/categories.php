@@ -1,5 +1,8 @@
 <?php
 require_once '../system/initialize.php';
+if(!is_logged_in()){
+  login_redirect();
+}
 include './includes/head.php';
 include './includes/nav.php';
 $category = ((isset($_POST['aesubmit']))?sanitize($_POST['aesubmit']):'');
@@ -42,7 +45,7 @@ if (isset($_POST['aesubmit'])){
   <h2 class="text-light text-center">Categories</h2>
   <br />
   <div class="row">
-    <div class="container text-right">
+    <div class="container text-left">
           <button name="add" id="addModal" onclick="modalShow()" class="btn btn-info border-light"><i class="fas fa-plus"></i> Add Category</button>
     </div>
 
@@ -50,8 +53,8 @@ if (isset($_POST['aesubmit'])){
   <br />
 
   <div class="table-responsive">
-    <table class="table text-light tableborder" id="tabledata">
-      <thead class="bg-primary">
+    <table class="table table-striped table-dark tableborder" id="tabledata">
+      <thead>
         <th></th>
         <th>Categories</th>
         <th>Date Modified</th>

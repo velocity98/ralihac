@@ -1,5 +1,8 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/ralihac/system/initialize.php';
+  if(is_logged_in()){
+    header('Location: index.php');
+  }
   include './includes/head.php';
  ?>
 

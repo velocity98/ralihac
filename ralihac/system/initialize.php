@@ -3,7 +3,6 @@ $host = "localhost";
 $dbuser = "root";
 $dbpassword = null;
 $dbname = "hackbase";
-
 $db = mysqli_connect($host,$dbuser,$dbpassword,$dbname);
 if(mysqli_connect_errno())
 {

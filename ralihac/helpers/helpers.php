@@ -23,4 +23,15 @@ function custom_echo($x, $length)
     return $y;
   }
 }
+
+function is_logged_in(){
+  if(isset($_SESSION['SBAdmin']) && $_SESSION['SBAdmin'] > 0){
+    return true;
+  }
+  return false;
+}
+
+function login_redirect($url = 'login.php'){
+  header('Location: '.$url);
+}
  ?>

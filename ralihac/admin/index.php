@@ -1,5 +1,8 @@
 <?php
 require_once '../system/initialize.php';
+if(!is_logged_in()){
+  login_redirect();
+}
 include './includes/head.php';
 include './includes/nav.php';
  ?>
