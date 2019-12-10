@@ -8,7 +8,7 @@ include 'includes/nav.php';
      <div class="col-md-3">
       <div class="card widget" style="margin-top: 3rem; margin-bottom: 1rem;">
         <div class="card-header">
-          <h5>Welcome to Ralihac</h5>
+          <h5 style='margin: 1px;'>Welcome to Ralihac</h5>
         </div>
         <div class="card-body">
           <span>Try Ralihac's Randomize &nbsp</span><a class="fas fa-info-circle text-info"></a>
