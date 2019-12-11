@@ -58,7 +58,7 @@ include 'includes/nav.php';
                    <input type="submit" value="Login" class="btn btn-light text-primary btn-block border-primary" name"login">
                  </div>
                </form>
-               <a href='#' class='text-light'>Create new account</a>
+               <a href='cr.php' class='text-light'>Create new account</a>
                <br />
                <a href='#' class='text-light'>Forgot password</a>
              </div>

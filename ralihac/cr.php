@@ -18,8 +18,8 @@ include 'includes/nav.php';
             <div class='col-md-7 offset-md-3'>
             <br />
 
-            <form method="post" action="cr.php" onsubmit="return user_validate()" name="vform">
-              <!-- change vForm -->
+            <form method="post" action="cr.php" onsubmit="return user_validate()" name="cform">
+
               <div class="input-group form-group">
                   <input type="text" class="form-control" placeholder="Username" aria-describedby="user_error" name="username" value="">
                   <small id="user_error" class="form-text val_error text-danger w-100"></small>
@@ -41,10 +41,11 @@ include 'includes/nav.php';
               </div>
 
               <div class="form-group">
-                <input type="submit" value="Sign Up" class="btn btn-light text-primary btn-block border-primary" name"signUp">
+                <input type="submit" id ="signUp" value="Sign Up" class="btn btn-light text-primary btn-block border-primary" name"signUp">
               </div>
             </form>
 
+            <a href='login.php' class='text-primary'>Already have an Account? (Log in)</a>
           </div>
 
         </div>
@@ -55,3 +56,4 @@ include 'includes/nav.php';
 <?php
 include 'includes/footer.php';
 ?>
+<script type='text/javascript' src='cr.js'></script>
