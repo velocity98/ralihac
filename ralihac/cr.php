@@ -5,17 +5,17 @@ include 'includes/nav.php';
 ?>
 <div class='container'>
   <div class='row align-items-center'>
-    <div class='col-md-8 offset-md-2'>
+    <div class='col-md-7 offset-md-2'>
       <div class="d-flex justify-content-center h-100" style='margin-top: 5rem;'>
         <div class='row'>
-          <div class='col-md-8 offset-md-2'>
+            <div class='col-md-9 offset-md-3'>
               <h2><b>Create your New Account</b></h2>
           </div>
-          <div class='col-md-8 offset-md-2'>
+    <div class='col-md-7 offset-md-3'>
               <h5>Get your ideas out there</h5>
           </div>
 
-          <div class='col-md-8 offset-md-2'>
+            <div class='col-md-7 offset-md-3'>
             <br />
 
             <form method="post" action="cr.php" onsubmit="return user_validate()" name="vform">
