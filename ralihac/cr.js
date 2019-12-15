@@ -46,6 +46,8 @@ function user_validate(){
     }
     if(countErrors.length > 0){
         return false;
+    }else{
+      return true;
     }
   }
 

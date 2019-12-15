@@ -5,10 +5,6 @@ if(!is_logged_in()){
 }
 include './includes/head.php';
 include './includes/nav.php';
-$category = ((isset($_POST['aesubmit']))?sanitize($_POST['aesubmit']):'');
-if (isset($_POST['aesubmit'])){
-
-}
  ?>
 <div class="container">
   <!-- Modal Add -->
