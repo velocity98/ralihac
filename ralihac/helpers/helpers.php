@@ -1,10 +1,14 @@
 <?php
-function login($admin_id){
+function login($admin_id){ // admin login
   $_SESSION['SBAdmin'] = $admin_id;
   global $db;
   $date = date("Y-m-d H:i:s");
   $db->query("UPDATE admin SET admin_date = '$date' WHERE admin_id = '$admin_id' ");
   header('Location: index.php');
+}
+
+function user_login(){
+ // complete this
 }
 
 function sanitize($wrong){
