@@ -13,8 +13,9 @@ if (isset($_POST)){
   $userCreate = date("Y-m-d H:i:s");
   $userHacks = '[]';
   $errorArray = [];
-    $confirmQuery = ("SELECT * FROM user_db");
-    $resultUsers = $db->query($confirmQuery);
+  $successArray = [];
+  $confirmQuery = ("SELECT * FROM user_db");
+  $resultUsers = $db->query($confirmQuery);
     while($row = mysqli_fetch_assoc($resultUsers)){
       if ($username == $row['user_username']){
         $errorArray[] = array('error' => 'Username has already been taken');
@@ -31,16 +32,17 @@ if (isset($_POST)){
         $stmt = $db->prepare($query);
         $stmt->bind_param('ssssss', $username, $hash, $email, $userCreate, $userCreate, $userHacks);
         $stmt->execute();
-        $stmt->close();
-      // $loginQuery = ("SELECT * FROM user_db WHERE user_username = ?"); // Query to login after creating Account
-      //   $stmt = $db->prepare($loginQuery);
-      //   $stmt->bind_param('s', $username);
-      //   $stmt->execute();
-      //   $result = $stmt->get_result();
-      //   $row = $result->fetch_assoc();
-      //   $user_id = $row['user_id'];
-      //     $stmt->close();
-      //     user_login($user_id);
+      $loginQuery = ("SELECT * FROM user_db WHERE user_username = ?"); // Query to login after creating Account
+        $stmt = $db->prepare($loginQuery);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $user_id = $row['user_id'];
+          user_login($user_id);
+          $stmt->close();
+      $successArray[] = array('success' => 'Login');
+      echo json_encode($successArray);
     }
 }
  ?>

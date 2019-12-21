@@ -48,7 +48,6 @@ function user_validate(){
       $('#tableHolder tbody').empty();
        var length = data.length;
          for(i = 0; i < length; i++){
-
              var error = data[i].error;
              var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
              $('#tableHolder tbody').append(tr);
@@ -59,11 +58,8 @@ function user_validate(){
                'border-style' : 'solid',
                'border-color' : 'red',
                'border-width' : '1px',
-
              });
-
          }
-
         if (data[0].success == 'Login'){
           $('#tableHolder tbody').empty();
           window.location = "index.php";

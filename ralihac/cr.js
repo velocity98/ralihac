@@ -102,29 +102,23 @@ function emailVerify(){
             {
             $('#tableHolder tbody').empty();
              var length = data.length;
-              for(i = 0; i < length; i++){
-                var error = data[i].error;
-                var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
-                $('#tableHolder tbody').append(tr);
-                $('#tableHolder tbody tr td div').css({
-                  'margin-bottom' : '10px',
-                  'background-color' : '#FDA0A0',
-                  'border-radius' : '3px',
-                  'border-style' : 'solid',
-                  'border-color' : 'red',
-                  'border-width' : '1px',
-                });
+                for(i = 0; i < length; i++){
+                  var error = data[i].error;
+                  var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
+                  $('#tableHolder tbody').append(tr);
+                  $('#tableHolder tbody tr td div').css({
+                    'margin-bottom' : '10px',
+                    'background-color' : '#FDA0A0',
+                    'border-radius' : '3px',
+                    'border-style' : 'solid',
+                    'border-color' : 'red',
+                    'border-width' : '1px',
+                  });
+                }
+              if (data[0].success == 'Login'){
+                $('#tableHolder tbody').empty();
+                window.location = "index.php";
               }
-              // if(data.length == 0){
-              //   $.ajax({
-              //     url: 'ajax_php_cr_redirect.php',
-              //     type: 'POST',
-              //     data: serializedData,
-              //     success: function(){
-              //       // nothing yet
-              //     }
-              //   });
-              // }
             }
         });
         return false;

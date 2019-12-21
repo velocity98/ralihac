@@ -10,11 +10,14 @@ function login($admin_id){ // admin login
   header('Location: index.php');
 }
 
-function user_login($user_id){
+function user_login($user_id){ // User login redirect with AJAX
   $_SESSION['SBuser'] = $user_id;
   global $db;
   $date = date("Y-m-d H:i:s");
-  $db->query("UPDATE user_db SET user_lastlogin = $date WHERE user_id = $user_id ");
+  $query = ("UPDATE user_db SET user_lastlogin = ? WHERE user_id = ? ");
+  $stmt = $db->prepare($query);
+  $stmt->bind_param('ss', $date, $user_id);
+  $stmt->execute();
 }
 
 function sanitize($wrong){
