@@ -97,7 +97,7 @@ function emailVerify(){
           url: "ajax_php_cr.php", // Url to which the request is send
           type: "POST",           // Type of request to be send, called as method
           dataType: 'JSON',
-          data: serializedData, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+          data: serializedData,
           success: function(data)
             {
             $('#tableHolder tbody').empty();
@@ -115,6 +115,16 @@ function emailVerify(){
                   'border-width' : '1px',
                 });
               }
+              // if(data.length == 0){
+              //   $.ajax({
+              //     url: 'ajax_php_cr_redirect.php',
+              //     type: 'POST',
+              //     data: serializedData,
+              //     success: function(){
+              //       // nothing yet
+              //     }
+              //   });
+              // }
             }
         });
         return false;

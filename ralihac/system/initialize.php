@@ -15,3 +15,6 @@ require_once BASEURL.'/helpers/helpers.php';
 if(isset($_SESSION['SBAdmin'])){
   $admin_id = $_SESSION['SBAdmin'];
 }
+if(isset($_SESSION['SBuser'])){
+  $user_id = $_SESSION['SBuser'];
+}

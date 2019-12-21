@@ -28,10 +28,19 @@ if (isset($_POST)){
     }
     else{
       $query = ("INSERT INTO user_db (user_username, user_password, user_email, user_create, user_lastlogin, user_hacks) VALUES (?,?,?,?,?,?)");
-      $stmt = $db->prepare($query);
-      $stmt->bind_param('ssssss', $username, $hash, $email, $userCreate, $userCreate, $userHacks);
-      $stmt->execute();
-      $stmt->close();
+        $stmt = $db->prepare($query);
+        $stmt->bind_param('ssssss', $username, $hash, $email, $userCreate, $userCreate, $userHacks);
+        $stmt->execute();
+        $stmt->close();
+      // $loginQuery = ("SELECT * FROM user_db WHERE user_username = ?"); // Query to login after creating Account
+      //   $stmt = $db->prepare($loginQuery);
+      //   $stmt->bind_param('s', $username);
+      //   $stmt->execute();
+      //   $result = $stmt->get_result();
+      //   $row = $result->fetch_assoc();
+      //   $user_id = $row['user_id'];
+      //     $stmt->close();
+      //     user_login($user_id);
     }
 }
  ?>
