@@ -52,7 +52,7 @@ include 'includes/nav.php';
         ?>
         <?php while ($row = mysqli_fetch_assoc($conn)): ?>
         <div class='col-md-4'>
-          <div class='card widget card-spacing'>
+          <div class='card widget card-spacing' id='card-hack'>
             <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
             <div class='card-header'>
               <span><?php echo $row['hack_name']?></span>
@@ -74,7 +74,7 @@ include 'includes/nav.php';
               }
               echo ($store == true) ? 'text-primary' : 'text-secondary';
               ?>
-              like-button' id='likeButton'> <span id='likeCount'><?php echo $row['hack_likes_count']?></span></button>
+              like-button' id='likeButton<?php echo $row['hack_id']?>'> <span id='likeCount<?php echo $row['hack_id']?>'><?php echo $row['hack_likes_count']?></span></button>
             </div>
           </div>
         </div>

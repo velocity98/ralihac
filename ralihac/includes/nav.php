@@ -34,7 +34,7 @@
            <a class="dropdown-item" href="#">Action</a>
            <a class="dropdown-item" href="#">Another action</a>
            <div class="dropdown-divider"></div>
-           <a class="dropdown-item" href="#">Logout</a>
+           <a class="dropdown-item" href="logout.php">Logout</a>
          </div>
        </li>
       </ul>
