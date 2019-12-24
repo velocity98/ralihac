@@ -47,4 +47,9 @@ function is_logged_in(){
 function login_redirect($url = 'login.php'){
   header('Location: '.$url);
 }
+
+function trim_image_string($string){
+  $output = substr($string, 3);
+  return $output;
+}
  ?>

@@ -19,7 +19,7 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
       $ralihac = 'Ralihac';
       $date = date("Y-m-d H:i:s");
 
-      $query = "INSERT INTO hack_db (hack_image, hack_name, hack_category, hack_description, hack_user, hack_date) VALUES (?,?,?,?,?,?)"; //fix ADD
+      $query = "INSERT INTO hack_db (hack_image, hack_name, hack_category, hack_description, hack_user, hack_date) VALUES (?,?,?,?,?,?)";
       $stmt = $db->prepare($query);
       $stmt->bind_param('ssssss', $targetPath, $hackName, $hackCategory, $hackDescription, $ralihac, $date);
       $stmt->execute();

@@ -119,20 +119,21 @@
   else{
     $output = '';
     while($hacks = mysqli_fetch_assoc($hackquery)){
-    $output .=   "<div class='col-md-3'>
-                    <div class='card card-hack bg-secondary text-light border-light' style='width: 17rem;' id='card-hack'>
-                      <img src='".$hacks['hack_image']."' class='card-img-top bg-light' alt='...' style='height: 14rem' >
-                        <div class='card-header bg-secondary' style='height:;'>
+    $output .=   "<div class='col-md-4'>
+                    <div class='card widget card-spacing' id='card-hack'>
+                      <img src='".$hacks['hack_image']."' class='card-img-top bg-light' alt='...' style='width: auto; height: 11rem' >
+                        <div class='card-header'>
                           <span>".$hacks['hack_name']."</span>
                         </div>
                         <div class='card-body card-body-css' id='card-body' style='display: none'>
                           <p class='card-text'>".custom_echo($hacks['hack_description'], 100)."</p>
                         </div>
                         <div class='card-footer' id='noMove'>
-                          <button class='btn btn-primary border-light' onClick='editHack(".$hacks['hack_id'].")'>Edit</button>&nbsp<button class='btn btn-light border-info text-info' onClick='deleteHack(".$hacks['hack_id'].")'>Delete</button>
+                          <button class='btn btn-info border-dark' onClick='editHack(".$hacks['hack_id'].")'>Edit</button>&nbsp<button class='btn btn-light border-info text-info' onClick='deleteHack(".$hacks['hack_id'].")'>Delete</button>
                         </div>
                     </div>
-                  </div>";
+                  </div>
+                  ";
     }
     exit($output);
   }

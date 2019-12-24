@@ -1,11 +1,7 @@
 html,body{
   height: 100%;
-  background: url("../images/siteimages/background.jpeg") no-repeat center center fixed;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
   font-family: 'roboto';
+  background-color: #E8E8E8;
 }
 
 body.modal-open {
@@ -14,6 +10,17 @@ body.modal-open {
     overflow-y: scroll !important;
 }
 
+.widget{
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
+  box-shadow: 1px 2px 8px -6px rgba(0,0,0,1);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #C0C0C0;
+}
+.row-margin{
+  margin-top : 1rem;
+}
 
 .card-style{
 margin-top: 30%;
@@ -81,9 +88,12 @@ align-content: center;
 }
 
 .card-hack{
-  margin-top: 15%;
-  margin-bottom: 15%;
   opacity: 0.9;
+}
+
+.card-spacing{
+  margin-top: .5rem;
+  margin-bottom: .1rem;
 }
 
 .card-body-css{

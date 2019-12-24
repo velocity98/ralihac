@@ -23,9 +23,10 @@ include 'includes/nav.php';
        </legend>
        <hr />
        <div class='row'>
+
          <div class='col-md-4'>
            <div class='card widget card-spacing'>
-             <img src='images/siteimages/background.jpeg' style='width: auto; height:10rem;'/>
+             <img src='images/siteimages/background.jpeg' style='width: auto; height:11rem;'/>
              <div class='card-header'>
                <span>Test</span>
              </div>
@@ -37,29 +38,39 @@ include 'includes/nav.php';
              </div>
            </div>
          </div>
+
        </div>
        <br />
       <legend>
         New Hacks
       </legend>
       <hr />
+
       <div class='row'>
+        <?php
+          $conn = $db->query("SELECT * FROM hack_db ORDER BY hack_id DESC LIMIT 6");
+        ?>
+        <?php while ($row = mysqli_fetch_assoc($conn)): ?>
         <div class='col-md-4'>
           <div class='card widget card-spacing'>
-            <img src='images/siteimages/background.jpeg' style='width: auto; height:10rem;'/>
+            <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
             <div class='card-header'>
-              <span>Test</span>
+              <span><?php echo $row['hack_name']?></span>
             </div>
             <div class='card-body'>
-
+              <p>
+                <?php echo $row['hack_description']?>
+              </p>
             </div>
-            <div class='card-footer text-secondary'>
-              <a class='fas fa-thumbs-up'> 2</a>
+            <div class='card-footer'>
+              <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up text-secondary like-button' id='likeButton'> <span id='likeCount'>2</span></button>
             </div>
           </div>
         </div>
+      <?php endwhile; ?>
       </div>
       <br />
+
       <legend>
         Most Liked Hacks
       </legend>
@@ -67,7 +78,7 @@ include 'includes/nav.php';
       <div class='row'>
         <div class='col-md-4'>
           <div class='card widget card-spacing'>
-            <img src='images/siteimages/background.jpeg' style='width: auto; height:10rem;'/>
+            <img src='images/siteimages/background.jpeg' style='width: auto; height:11rem;'/>
             <div class='card-header'>
               <span>Test</span>
             </div>
@@ -87,3 +98,4 @@ include 'includes/nav.php';
 <?php
 include 'includes/footer.php';
  ?>
+<script type='text/javascript' src='index.js'></script>

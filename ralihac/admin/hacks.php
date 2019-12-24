@@ -78,15 +78,33 @@ $categoryquery = $db->query($categorydb);
             <div id="message"></div>
     </div>
   <?php else: ?>
-  <h2 class="text-center text-light">Hacks</h2>
-  <div class="text-left">
-  <a href="hacks.php?add=1" class="btn btn-info border-light text-light"><i class="fas fa-plus"></i> Add New Hack</a>
-  </div>
-  <div class="row" id='hackView'>
 
-  </div>
+    <div class='row row-margin'>
+      <div class='col-md-3'>
+        <div class="card widget" style="margin-top: 3rem; margin-bottom: 1rem;">
+          <div class="card-header">
+            <h5 style='margin: 1px;'>Customization</h5>
+          </div>
+          <div class="card-body">
+            <span>Try Ralihac's Randomize &nbsp</span><a class="fas fa-info-circle text-info"></a>
+            <a href='hacks.php?add=1' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add New Hack</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-9'>
+        <legend>
+          Hacks
+        </legend>
+        <hr />
+        <div class="row" id='hackView'>
+        </div>
+      </div>
+    </div>
+
 <?php endif; ?>
 
+</div>
 </div>
  <?php
 include './includes/footer.php';
