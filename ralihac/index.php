@@ -63,11 +63,24 @@ include 'includes/nav.php';
               </p>
             </div>
             <div class='card-footer'>
-              <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up text-secondary like-button' id='likeButton'> <span id='likeCount'>2</span></button>
+              <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
+              <?php
+              $jsonArray = json_decode($row['hack_likes'], true);
+              $store = false;
+              for ($i=0; $i < count($jsonArray) ;$i++) {
+                if($jsonArray[$i]['like_status'] == true && $jsonArray[$i]['user_id'] == $user_id){
+                  $store = true;
+                }
+              }
+              echo ($store == true) ? 'text-primary' : 'text-secondary';
+              ?>
+              like-button' id='likeButton'> <span id='likeCount'><?php echo $row['hack_likes_count']?></span></button>
             </div>
           </div>
         </div>
-      <?php endwhile; ?>
+      <?php
+      endwhile;
+      ?>
       </div>
       <br />
 

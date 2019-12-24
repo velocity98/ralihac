@@ -24,7 +24,7 @@
         $stmt->close();
         return print('liked');
       }
-      else{
+      else{ // toggle like/unlike
         $jsonArray = json_decode($row['hack_likes'], true);
         $i = 0;
         foreach ($jsonArray as $key) {
@@ -37,7 +37,7 @@
             $stmt->bind_param('sii', $jsonEncode, $likeCount, $id);
             $stmt->execute();
             $stmt->close();
-            return print('disliked');
+            return print('unliked');
           }
           $i++;
         }
