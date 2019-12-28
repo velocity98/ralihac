@@ -20,46 +20,49 @@ include './includes/nav.php';
       <div class="modal-body">
         <div>
           <input class="form-control" id="categoryText" placeholder="Enter Category Name..."  type="text" />
-          <small id="errorcheck1"></small>
+          <small id="errorcheck1" class='text-danger'></small>
         </div>
 
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger border-dark" data-dismiss="modal">Close</button>
-        <input type="button" class="btn btn-success border-dark" id="addCategory" onclick="addCategory()" value="Add">
+        <input type="button" class="btn btn-info border-dark" id="addCategory" onclick="addCategory()" value="Add">
+        <button type="button" class="btn btn-light border-primary text-primary" data-dismiss="modal">Close</button>
       </div>
 
     </div>
   </div>
   </div>
 
-
-
-
   <br />
-  <h2 class="text-light text-center">Categories</h2>
-  <br />
+  <legend>Categories</legend>
+  <hr />
   <div class="row">
-    <div class="container text-left">
-          <button name="add" id="addModal" onclick="modalShow()" class="btn btn-info border-light"><i class="fas fa-plus"></i> Add Category</button>
+    <div class='col-md-3'>
+      <div class="card widget" style="margin-top: 3rem; margin-bottom: 1rem;">
+        <div class="card-header">
+          <h5 style='margin: 1px;'>Customization</h5>
+        </div>
+        <div class="card-body">
+          <button onclick='modalShow()' name="add" id="addModal" class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add Category</button>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      <div class="table-responsive">
+        <table class="table table-borderless" id="tabledata">
+          <thead>
+            <th></th>
+            <th>Categories</th>
+            <th>Date Modified</th>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
-  <br />
-
-  <div class="table-responsive">
-    <table class="table table-striped table-dark tableborder" id="tabledata">
-      <thead>
-        <th></th>
-        <th>Categories</th>
-        <th>Date Modified</th>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </div>
-
 </div>
  <?php
 include './includes/footer.php';

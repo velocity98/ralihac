@@ -17,4 +17,12 @@ if(isset($_SESSION['SBAdmin'])){
 }
 if(isset($_SESSION['SBuser'])){
   $user_id = $_SESSION['SBuser'];
+  $userQuery = ("SELECT * FROM user_db WHERE user_id = ?");
+  $stmt = $db->prepare($userQuery);
+  $stmt->bind_param('i', $user_id);
+  $stmt->execute();
+  $result =  $stmt->get_result();
+  $row = $result->fetch_assoc();
+  $username = $row['user_username'];
+  $stmt->close();
 }

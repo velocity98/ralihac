@@ -10,7 +10,7 @@
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-      if(count(json_decode($row['hack_likes'],true)) == 0 ){
+      if(empty($row['hack_likes']) == true ){
         $likeArray[] = array(
           'user_id' => $user_id,
           'like_status' => true

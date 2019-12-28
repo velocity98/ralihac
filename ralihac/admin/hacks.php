@@ -12,14 +12,14 @@ $categoryquery = $db->query($categorydb);
   <br>
   <?php if(isset($_GET['add'])): ?>
     <div class="container">
-        <h2 class="text-light text-center">Add Hack</h2><br/>
+        <legend>Add Hack</legend>
+        <hr />
                 <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-4 height">
                         <div class="d-flex justify-content-center h-100">
-                          <div class="wrap1 bg-dark border-primary">
-                            <div class="card-body">
-                              <div id="image_preview"><img id="previewing" class="img-fluid border border-light" src="../images/siteimages/no_image.png" /></div>
+                          <div>
+                              <div id="image_preview"><img id="previewing" class="img-fluid widget" src="../images/siteimages/no_image.png" /></div>
                               <br />
                                   <div id="selectImage">
                                     <div class="custom-file">
@@ -28,17 +28,13 @@ $categoryquery = $db->query($categorydb);
                                     </div>
                                     <div id="message"></div>
                                   </div>
-                            </div>
                           </div>
                       </div>
                     </div>
                     <div class="col-md-8 height">
                       <div class="justify-content-center h-100">
-                        <div class="wrap2 bg-dark border-primary" style="width: 100%;">
-                          <div class="card-body">
-
-                            <div class="form-group row">
-                              <label class="text-light col-form-label col-md-4" for="hack">Hack Title: </label>
+                        <div class="form-group row">
+                              <label class="col-form-label col-md-4" for="hack">Hack Title: </label>
                               <div class="col-md-8">
                                 <input type="text" class="form-control" name="hack" id="hack" />
                                 <small id='noName' class='text-danger'></small>
@@ -46,7 +42,7 @@ $categoryquery = $db->query($categorydb);
                             </div>
 
                             <div class="form-group row">
-                              <label class="text-light col-form-label col-md-4" for="categories">Hack Category: </label>
+                              <label class="col-form-label col-md-4" for="categories">Hack Category: </label>
                                 <div class="col-md-8">
                                   <select id="categories" class="form-control" name="categories">
                                     <option></option>
@@ -59,23 +55,19 @@ $categoryquery = $db->query($categorydb);
                             </div>
 
                             <div class="form-group row">
-                              <label class="text-light col-form-label col-md-4" for="description">Hack Description: </label>
+                              <label class="col-form-label col-md-4" for="description">Hack Description: </label>
                                 <div class="col-md-8">
                                   <textarea id="description" name="description" class="form-control" rows="5"></textarea>
                                   <small id='noNameThree' class='text-danger'></small>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="card-footer text-right">
-                          <input type="submit" value="Upload" class="submit btn btn-info border-light" />
-                          <a href='./hacks.php' class="btn btn-light border-primary text-primary">Cancel</a>
-                        </div>
-                      </div>
+                            <div class='text-right'>
+                              <input type="submit" value="Upload" class="submit btn btn-info border-dark" />
+                              <a href='./hacks.php' class="btn btn-light border-primary text-primary">Cancel</a>
+                            </div>
                     </div>
                   </div>
                 </form>
-            <div id="message"></div>
     </div>
   <?php else: ?>
 

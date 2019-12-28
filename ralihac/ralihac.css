@@ -45,3 +45,20 @@ width: 400px;
 box-shadow: 5px 5px 8px -6px rgba(0,0,0,1);
 opacity: .9;
 }
+
+
+@media screen and (min-width: 768px){
+  .searchstyle{
+    width: 25rem !important;
+  }
+}
+
+@media screen and (max-width: 765px){
+  .searchstyle{
+    width: auto !important;
+  }
+}
+
+.find-image{
+  height: 1rem;
+}

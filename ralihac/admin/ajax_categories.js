@@ -59,7 +59,6 @@ function deleteThis(id){
     if(newcategory == ''){
       $('#categoryText').css('border', '1px solid red');
       $('#errorcheck1').html('Enter Category');
-      $('#errorcheck1').css('color', 'red');
       return;
     }else{
       $('#categoryText').css('border', '');
@@ -103,7 +102,6 @@ function deleteThis(id){
     if(names == ''){
       $('#categoryTextEdit').css('border', '1px solid red');
       $('#errorcheck2').html('Enter Category');
-      $('#errorcheck2').css('color', 'red');
       return;
     }else{
     $.ajax({

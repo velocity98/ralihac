@@ -44,6 +44,13 @@ function is_logged_in(){
   return false;
 }
 
+function is_logged_in_user(){
+  if(isset($_SESSION['SBuser']) && $_SESSION['SBuser'] > 0){
+    return true;
+  }
+  return false;
+}
+
 function login_redirect($url = 'login.php'){
   header('Location: '.$url);
 }

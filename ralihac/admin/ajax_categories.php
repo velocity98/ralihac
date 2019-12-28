@@ -52,8 +52,8 @@ $date = date("Y-m-d H:i:s");
           </div>
 
           <div class='modal-footer'>
-            <button type='button' class='btn btn-danger border-dark' data-dismiss='modal'>Close</button>
-            <input type='button' class='btn btn-success border-dark' id='editCategory' onclick='editCategory(".$category['category_id'].")' value='Save Changes'>
+            <input type='button' class='btn btn-info border-dark' id='editCategory' onclick='editCategory(".$category['category_id'].")' value='Save Changes'>
+            <button type='button' class='btn btn-light border-primary text-primary' data-dismiss='modal'>Close</button>
           </div>
 
         </div>
@@ -82,9 +82,8 @@ else{
                    <td>
                    <div class='text-nowrap'>
                    <button id='edit' name='edit' onclick='editModal(".$category['category_id'].")' class='btn btn-sm btn-light border border-primary'><i class='fas fa-edit'></i></button>
-                   <button id='delete' name='delete' onclick='deleteThis(".$category['category_id'].")' class='btn btn-sm btn-danger border border-light'><i class='fas fa-trash'></i></button>
+                   <button id='delete' name='delete' onclick='deleteThis(".$category['category_id'].")' class='btn btn-sm btn-danger border border-dark'><i class='fas fa-trash'></i></button>
                    </div>
-
                    </td>
                    <td>". $category['category_name'] ."</td>
                    <td>". date_format($date, 'g:ia \o\n l jS F Y') ."</td>

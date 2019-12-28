@@ -24,12 +24,11 @@ if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "im
       $stmt->bind_param('ssssss', $targetPath, $hackName, $hackCategory, $hackDescription, $ralihac, $date);
       $stmt->execute();
       $stmt->close();
-      move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+      move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
   }
 }
-else
-{
-echo "<br><p id='error' class='text-danger'>Please Select A valid Image File</p>"."<h5 class='text-light'>Note:</h5>"."<span id='error_message' class='text-light'>Only jpeg and jpg images type allowed</span>";
+else{
+echo "<br><p class='text-danger'>Please Select A valid Image File</p>"."<h5>Note:</h5>"."<span>Only jpeg and jpg images type allowed</span>";
 }
 }
 ?>

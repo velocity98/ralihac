@@ -55,7 +55,7 @@ include 'includes/nav.php';
           <div class='card widget card-spacing' id='card-hack'>
             <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
             <div class='card-header'>
-              <span><?php echo $row['hack_name']?></span>
+              <b><?php echo $row['hack_name']?></b>
             </div>
             <div class='card-body'>
               <p>
@@ -74,7 +74,19 @@ include 'includes/nav.php';
               }
               echo ($store == true) ? 'text-primary' : 'text-secondary';
               ?>
-              like-button' id='likeButton<?php echo $row['hack_id']?>'> <span id='likeCount<?php echo $row['hack_id']?>'><?php echo $row['hack_likes_count']?></span></button>
+              like-button float-left' id='likeButton<?php echo $row['hack_id']?>'> <span id='likeCount<?php echo $row['hack_id']?>'><?php echo $row['hack_likes_count']?></span></button>
+              <button onclick='saveButton(<?php echo $row['hack_id']?>)' class='fas fa-bookmark
+                <?php
+                $jsonArraySaved = json_decode($row['hack_saved_users'], true);
+                $storeSaved = false;
+                for ($i=0; $i < count($jsonArraySaved) ;$i++) {
+                  if($jsonArraySaved[$i]['saved_status'] == true && $jsonArraySaved[$i]['user_id'] == $user_id){
+                    $storeSaved = true;
+                  }
+                }
+                echo ($storeSaved == true) ? 'text-success' : 'text-secondary';
+                 ?>
+                like-button float-right' id='saveButton<?php echo $row['hack_id']?>'><span id='saveStatus<?php echo $row['hack_id']?>'><?php echo ($storeSaved == true ? ' Saved' : ' Save')?></span></button>
             </div>
           </div>
         </div>
@@ -89,21 +101,54 @@ include 'includes/nav.php';
       </legend>
       <hr />
       <div class='row'>
+        <?php
+          $connection = $db->query("SELECT * FROM hack_db ORDER BY hack_likes_count DESC LIMIT 6");
+        ?>
+        <?php while ($row = mysqli_fetch_assoc($connection)): ?>
         <div class='col-md-4'>
-          <div class='card widget card-spacing'>
-            <img src='images/siteimages/background.jpeg' style='width: auto; height:11rem;'/>
+          <div class='card widget card-spacing' id='card-hack'>
+            <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
             <div class='card-header'>
-              <span>Test</span>
+              <b><?php echo $row['hack_name']?></b>
             </div>
             <div class='card-body'>
-
+              <p>
+                <?php echo $row['hack_description']?>
+              </p>
             </div>
-            <div class='card-footer text-secondary'>
-              <a class='fas fa-thumbs-up'> 2</a>
+            <div class='card-footer'>
+              <button onclick='mostLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
+              <?php
+              $jsonArray = json_decode($row['hack_likes'], true);
+              $store = false;
+              for ($i=0; $i < count($jsonArray) ;$i++) {
+                if($jsonArray[$i]['like_status'] == true && $jsonArray[$i]['user_id'] == $user_id){
+                  $store = true;
+                }
+              }
+              echo ($store == true) ? 'text-primary' : 'text-secondary';
+              ?>
+              like-button float-left' id='mostLikeButton<?php echo $row['hack_id']?>'> <span id='mostLikeCount<?php echo $row['hack_id']?>'><?php echo $row['hack_likes_count']?></span></button>
+              <button onclick='mostSaveButton(<?php echo $row['hack_id']?>)' class='fas fa-bookmark
+              <?php
+              $jsonArraySaved = json_decode($row['hack_saved_users'], true);
+              $storeSaved = false;
+              for ($i=0; $i < count($jsonArraySaved) ;$i++) {
+                if($jsonArraySaved[$i]['saved_status'] == true && $jsonArraySaved[$i]['user_id'] == $user_id){
+                  $storeSaved = true;
+                }
+              }
+              echo ($storeSaved == true) ? 'text-success' : 'text-secondary';
+               ?>
+              like-button float-right text-secondary' id='mostSaveButton<?php echo $row['hack_id']?>'><span id='mostSaveStatus<?php echo $row['hack_id']?>'><?php echo ($storeSaved == true) ? ' Saved' : ' Save'?></span></button>
             </div>
           </div>
         </div>
+      <?php
+      endwhile;
+      ?>
       </div>
+
      </div>
 
    </div>
