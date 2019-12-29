@@ -19,6 +19,9 @@ function likeButton(id){
             $('#likeCount'+id).text(likeCount - 1);
         });
       }
+    },
+    error: function(data){
+      alert(data);
     }
   });
 }
