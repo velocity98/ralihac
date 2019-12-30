@@ -29,27 +29,39 @@ include 'includes/nav.php';
     </div>
 
     <div class='col-md-9'>
-      <legend>
-        Saved
-      </legend>
-      <hr />
+
+        <div class='d-flex'>
+          <div class='mr-auto'>
+            <legend>
+              Saved <span id='allSaves' class='text-info'></span>
+            </legend>
+          </div>
+          <div class=''>
+            <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
+          </div>
+        </div>
+        <hr />
+
       <div class='container '>
         <div class='row view-saved'>
-
         </div>
       </div>
-
       <br />
-      <legend>
-        Liked
-      </legend>
+      <div class='d-flex'>
+        <div class='mr-auto'>
+          <legend>
+            Liked <span id='allLikes' class='text-info'></span>
+          </legend>
+        </div>
+        <div class=''>
+          <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
+        </div>
+      </div>
       <hr />
       <div class='container '>
         <div class='row view-liked'>
-          <!-- <span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> You haven't Liked any hacks yet</span> -->
         </div>
       </div>
-
     </div>
   </div>
 </div>

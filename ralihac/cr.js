@@ -94,7 +94,7 @@ function emailVerify(){
       else{
         var serializedData = $('#submitForm').serialize();
         $.ajax({
-          url: "ajax_php_cr.php", // Url to which the request is send
+          url: "./ajax_files/ajax_php_cr.php", // Url to which the request is send
           type: "POST",           // Type of request to be send, called as method
           dataType: 'JSON',
           data: serializedData,

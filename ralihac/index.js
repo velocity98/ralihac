@@ -1,7 +1,7 @@
 function likeButton(id){
   let likeCount = parseInt($('#likeCount'+id).text());
   $.ajax({
-    url: 'ajax_php_like.php',
+    url: './ajax_files/ajax_php_like.php',
     type: 'POST',
     data: {
       id: id
@@ -28,7 +28,7 @@ function likeButton(id){
 
 function saveButton(id){
   $.ajax({
-    url: 'ajax_php_saved_hacks.php',
+    url: './ajax_files/ajax_php_saved_hacks.php',
     type: 'POST',
     data: {
       id: id
@@ -53,7 +53,7 @@ function saveButton(id){
 function mostLikeButton(id){
   let likeCount = parseInt($('#mostLikeCount'+id).text());
   $.ajax({
-    url: 'ajax_php_like.php',
+    url: './ajax_files/ajax_php_like.php',
     type: 'POST',
     data: {
       id: id
@@ -77,7 +77,7 @@ function mostLikeButton(id){
 
 function mostSaveButton(id){
   $.ajax({
-    url: 'ajax_php_saved_hacks.php',
+    url: './ajax_files/ajax_php_saved_hacks.php',
     type: 'POST',
     data: {
       id: id

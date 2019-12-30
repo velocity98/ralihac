@@ -1,17 +1,15 @@
 <?php
-// only view saved hacks, not submitting anything
-require_once 'system/initialize.php';
-
-  $connection = $db->query(
-    "SELECT * FROM save_db
+require_once '../system/initialize.php';
+  $conn = $db->query(
+    "SELECT * FROM like_db
       LEFT JOIN hack_db
-      ON save_db.hack_id = hack_db.hack_id
-      WHERE save_db.user_id = $user_id
-      ORDER BY save_db.save_date DESC
+      ON like_db.hack_id = hack_db.hack_id
+      WHERE like_db.user_id = $user_id
+      ORDER BY like_db.like_date DESC
       LIMIT 3"
     );
   $output = '';
- while ($row = mysqli_fetch_assoc($connection)){
+ while ($row = mysqli_fetch_assoc($conn)){
   $hack_id = $row['hack_id'];
   $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
   $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
@@ -28,7 +26,7 @@ require_once 'system/initialize.php';
           </p>
         </div>
         <div class='card-footer'>
-          <button onclick='mostLikeButton(".$row['hack_id'].")' class='fas fa-thumbs-up
+          <button onclick='likeButton(".$row['hack_id'].")' class='fas fa-ban
           ";
           $store = false;
           while ($rowLikes = mysqli_fetch_assoc($likeQuery)) {
@@ -36,10 +34,10 @@ require_once 'system/initialize.php';
               $store = true;
             }
           }
-        $output .= ($store == true) ? ' text-primary ' : ' text-secondary ';
+        $output .= ($store == true) ? ' text-danger ' : ' text-secondary ';
         $output.=
-          "like-button float-left' id='mostLikeButton".$row['hack_id']."'> <span id='mostLikeCount".$row['hack_id']."'>".mysqli_num_rows($likeQuery)."</span></button>
-          <button onclick='mostSaveButton(".$row['hack_id'].")' class='fas fa-ban
+          "like-button float-right' id='likeButton".$row['hack_id']."'> <span id='likeCount".$row['hack_id']."'>Remove</span></button>
+          <button onclick='saveButton(".$row['hack_id'].")' class='fas fa-bookmark
           ";
           $storeSaved = false;
           while ($rowLikes = mysqli_fetch_assoc($saveQuery)) {
@@ -47,17 +45,17 @@ require_once 'system/initialize.php';
               $storeSaved = true;
             }
           }
-        $output .= ($storeSaved == true) ? ' text-danger ' : ' text-secondary ';
+        $output .= ($storeSaved == true) ? ' text-success ' : ' text-secondary ';
         $output .=
-          "like-button float-right' id='mostSaveButton".$row['hack_id']."'><span id='mostSaveStatus".$row['hack_id']."'>";
-        $output .= ($storeSaved == true) ? ' Remove' : ' Save ';
+          "like-button float-left' id='saveButton".$row['hack_id']."'><span id='saveStatus".$row['hack_id']."'>";
+        $output .= ($storeSaved == true) ? ' Saved' : ' Save ';
         $output .="</span></button>
         </div>
       </div>
     </div>";
 }
 if ($output == ''){
-  echo $output .= "<span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> You haven't saved any hacks yet</span>";
+  echo $output .= "<span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> You haven't Liked any hacks yet</span>";
 }else{
   echo $output;
 }

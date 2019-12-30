@@ -1,5 +1,5 @@
 <?php
-require_once 'system/initialize.php';
+require_once '../system/initialize.php';
 if (isset($_POST)){
     $username = sanitize($_POST['username']);
     $password = sanitize($_POST['password']);

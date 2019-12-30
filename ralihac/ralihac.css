@@ -71,3 +71,7 @@ opacity: .9;
   border-width : 1px;
   padding: 15px;
 }
+
+.view-hover:hover{
+  background-color: #D1D1E1;
+}

@@ -39,7 +39,7 @@ function user_validate(){
   }
   var serializedData = $('#userLoginForm').serialize();
   $.ajax({
-    url: "ajax_php_login.php",
+    url: "./ajax_files/ajax_php_login.php",
     type: "POST",
     dataType: 'JSON',
     data: serializedData,
