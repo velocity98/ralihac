@@ -1,5 +1,3 @@
-
-
 // clear error
 function userVerify(){
   if (username.value != ""){

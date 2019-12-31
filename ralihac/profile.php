@@ -20,7 +20,7 @@ include 'includes/nav.php';
          <h5 style='margin: 1px;'>My Profile</h5>
        </div>
        <div class="card-body">
-         <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add New Hack</button>
+         <a href='ah.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add New Hack</a>
          <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Liked Hacks</button>
          <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Saved Hacks</button>
          <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Pending Approval</button>
