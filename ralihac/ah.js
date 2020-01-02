@@ -1,3 +1,18 @@
+function clearFields(){
+  $('#hack').val('');
+  $('#categories').val('');
+  $('#description').val('');
+  $('#file').val('');
+  $('#fileText').html('Select Your Image');
+  $('#previewing').attr('src', './images/siteimages/no_image.png');;
+}
+
+$('#modalImage').modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: false
+});
+
 // input dom
 const hackTitle = $('#hack');
 const hackCategory = $('#categories');
@@ -34,7 +49,7 @@ hackDescription.on('blur', function(){
 });
 hackImage.on('change', function(){
   if (hackImage.val() != ''){
-    $('#customFile').css('border', '');
+    $('#previewing').css('border', '');
     noImage.html('');
     return true;
   }
@@ -46,7 +61,7 @@ $(document).ready(function (e) { // Ajax call for Image
     $("#message").empty();
 
     if (hackTitle.val() == "" || hackCategory.val() == "" || hackDescription.val() == "" || hackImage.val() == ""){
-      var variables = [hackTitle, hackCategory, hackDescription, $('#previewing')];
+      var variables = [hackTitle, hackCategory, hackDescription, hackImage];
       var errors = [noName, noNameTwo, noNameThree, noImage];
       var countErrors = [];
 
@@ -65,6 +80,7 @@ $(document).ready(function (e) { // Ajax call for Image
                   break;
               case 3:
                   errors[i].html('Enter Image File');
+                  $('#previewing').css('border', '1.3px solid red');
                   break;
             }
           variables[i].focus();
@@ -73,26 +89,23 @@ $(document).ready(function (e) { // Ajax call for Image
       }
       if(countErrors.length > 0){
           return false;
-      }else{
-        // nothing yet
       }
     }
-
-    // if(isNotEmpty(hackTitle, noName) && isNotEmpty(hackCategory, noNameTwo) && isNotEmpty(hackDescription, noNameThree)){
-    //   $.ajax({
-    //     url: "ajax_php_file.php",
-    //     type: "POST",
-    //     data: new FormData(this),
-    //     contentType: false,
-    //     cache: false,
-    //     processData:false,
-    //     success: function(data)
-    //       {
-    //         $("#message").html(data);
-    //       }
-    //   });
-    // }
-
+      $.ajax({
+        url: "./ajax_files/ajax_php_image.php",
+        type: "POST",
+        data: new FormData(this),
+        contentType: false,
+        cache: false,
+        processData:false,
+        success: function(data)
+          {
+            $("#message").html(data);
+            if(data == ''){
+              $('#modalImage').modal('show');
+            }
+          }
+      });
   }));
 
   // Function to preview image after chosen file

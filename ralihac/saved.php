@@ -21,7 +21,7 @@ include 'includes/nav.php';
        </div>
        <div class="card-body">
          <a href='ah.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add New Hack</a>
-         <a href='liked.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Liked Hacks</a>
+        <a href='liked.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Liked Hacks</a>
          <a href='saved.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Saved Hacks</a>
          <a href='pd.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Pending Approval</a>
        </div>
@@ -36,9 +36,6 @@ include 'includes/nav.php';
               Saved <span id='allSaves' class='text-info'></span>
             </legend>
           </div>
-          <div class=''>
-            <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
-          </div>
         </div>
         <hr />
 
@@ -46,26 +43,11 @@ include 'includes/nav.php';
         <div class='row view-saved'>
         </div>
       </div>
-      <br />
-      <div class='d-flex'>
-        <div class='mr-auto'>
-          <legend>
-            Liked <span id='allLikes' class='text-info'></span>
-          </legend>
-        </div>
-        <div class=''>
-          <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
-        </div>
-      </div>
-      <hr />
-      <div class='container '>
-        <div class='row view-liked'>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
 <?php
 include 'includes/footer.php';
 ?>
-<script type='text/javascript' src='profile.js'></script>
+<script type='text/javascript' src='saved.js'></script>

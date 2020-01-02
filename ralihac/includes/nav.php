@@ -10,7 +10,7 @@
           <a class='nav-link'>Categories</a> <!-- Put functionality plus make some dropdown-->
         </li>
         <li class='nav-item active'>
-          <a class='nav-link'>Create Hack</a>
+          <a href='ah.php' class='nav-link'>Create Hack</a>
         </li>
         <li class='nav-item'>
           <a class='nav-link'>Popular Hacks</a>
@@ -43,7 +43,7 @@
 
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <a class="dropdown-item" href='profile.php'>Profile</a>
-           <a class="dropdown-item" href="#">Add Hack</a>
+           <a class="dropdown-item" href="ah.php">Add Hack</a>
            <div class="dropdown-divider"></div>
            <a class="dropdown-item" href="logout.php">Logout</a>
          </div>

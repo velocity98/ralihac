@@ -5,6 +5,26 @@ include 'includes/nav.php';
 $categorydb = ("SELECT * FROM category_db ORDER BY category_name");
 $categoryquery = $db->query($categorydb);
 ?>
+<div class='modal fade' id='modalImage' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title text-success'><i class='fas fa-check-circle'></i> Success!</h5>
+      </div>
+      <div class='modal-body'>
+        <p>
+          Hooray! You have created your very own Life Hack. Now what? Unfortunately your Life Hack must first be verfied by Ralihac before showing it to the world.
+        </p>
+        <h5>Would you like to Create another one?</h5>
+      </div>
+      <div class='modal-footer'>
+        <button onclick='clearFields()' class='btn btn-info border border-dark text-light' data-dismiss='modal'>Yes</button>
+        <a href='pd.php' class='btn btn-light border border-primary text-primary'>No</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row row-margin">
     <div class="col-md-3">
@@ -23,9 +43,9 @@ $categoryquery = $db->query($categorydb);
        </div>
        <div class="card-body">
          <a href='ah.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Add New Hack</a>
-         <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Liked Hacks</button>
-         <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Saved Hacks</button>
-         <button class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Pending Approval</button>
+         <a href='liked.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Liked Hacks</a>
+         <a href='saved.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Saved Hacks</a>
+         <a href='pd.php' class="btn btn-block border border-dark bg-info text-light" style="margin-top: .5rem">Pending Approval</a>
        </div>
      </div>
     </div>
@@ -46,7 +66,7 @@ $categoryquery = $db->query($categorydb);
                     <br />
                         <div id="selectImage">
                           <div class="custom-file" id='customFile'>
-                            <label class="text-dark custom-file-label" for="file">Select Your Image</label>
+                            <label class="text-dark custom-file-label" for="file" id='fileText'>Select Your Image</label>
                             <input type="file" name="file" class="custom-file-input" id="file" />
                           </div>
                           <small id='noImage' class='text-danger'></small>
@@ -88,7 +108,7 @@ $categoryquery = $db->query($categorydb);
 
                   <div class='text-right'>
                     <input type="submit" value="Upload" class="submit btn btn-info border-dark" />
-                    <a href='./hacks.php' class="btn btn-light border-primary text-primary">Cancel</a>
+                    <a href='profile.php' class="btn btn-light border-primary text-primary">Cancel</a>
                   </div>
 
           </div>
@@ -98,6 +118,7 @@ $categoryquery = $db->query($categorydb);
         <!-- Until Adjust here FORM -->
     </div>
   </div>
+</div>
 </div>
 <?php
 include 'includes/footer.php';
