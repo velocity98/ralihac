@@ -6,8 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
-          <a class='nav-link'>Categories</a> <!-- Put functionality plus make some dropdown-->
+        <li class='nav-item dropdown'>
+          <a class='nav-link dropdown-toggle' href='' role='button' data-toggle="dropdown">Categories</a>
+          <div class="dropdown-menu">
+            <?php
+            $categoryQuery = $db->query("SELECT * FROM category_db ORDER BY category_name");
+             while ($row = mysqli_fetch_assoc($categoryQuery)):
+            ?>
+          <a class="dropdown-item" href="cg.php?category=<?php echo strtolower($row['category_name'])?>"><?php echo $row['category_name']?></a>
+            <?php endwhile;?>
+        </div>
         </li>
         <li class='nav-item active'>
           <a href='ah.php' class='nav-link'>Create Hack</a>
@@ -19,9 +27,9 @@
 
       <ul class='navbar-nav mr-auto'>
         <li class="nav-item">
-          <form class="form-inline my-0 my-lg-0">
+          <form method="GET" action="search.php" class="form-inline my-0 my-lg-0">
             <div class='input-group'>
-              <input class="form-control searchstyle" type="search" placeholder="Search">
+              <input class="form-control searchstyle" type="search" name="query" placeholder="Search">
               <div class='input-group-append'>
                 <button class="btn input-group-text" type="submit"><img src='images/siteimages/find.png' class='find-image'/></button>
               </div>
@@ -41,7 +49,7 @@
            <i class="fas fa-user"></i> Hello <?php echo $username?>
          </a>
 
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
            <a class="dropdown-item" href='profile.php'>Profile</a>
            <a class="dropdown-item" href="ah.php">Add Hack</a>
            <div class="dropdown-divider"></div>

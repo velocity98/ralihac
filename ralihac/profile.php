@@ -36,8 +36,8 @@ include 'includes/nav.php';
               Saved <span id='allSaves' class='text-info'></span>
             </legend>
           </div>
-          <div class=''>
-            <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
+          <div>
+            <a href='saved.php' class='text-info btn btn-default border border-info view-hover'>View All</a>
           </div>
         </div>
         <hr />
@@ -53,8 +53,8 @@ include 'includes/nav.php';
             Liked <span id='allLikes' class='text-info'></span>
           </legend>
         </div>
-        <div class=''>
-          <button href='' class='text-info btn btn-default border border-info view-hover'>View All</button>
+        <div>
+          <a href='liked.php' class='text-info btn btn-default border border-info view-hover'>View All</a>
         </div>
       </div>
       <hr />
