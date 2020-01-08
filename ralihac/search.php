@@ -19,8 +19,9 @@ include 'includes/nav.php';
 
      <div class='col-md-9'>
        <?php
-       $searchQuery = sanitize("%{$_GET['query']}%");
-       $searchName = sanitize($_GET['query']);
+       if (isset($_GET['q'])):
+       $searchQuery = sanitize("%{$_GET['q']}%");
+       $searchName = sanitize($_GET['q']);
        $conn = ("SELECT * FROM hack_db WHERE hack_name LIKE ? OR hack_description LIKE ? OR hack_user LIKE ? OR hack_category LIKE ?");
        $stmt = $db->prepare($conn);
        $stmt->bind_param('ssss', $searchQuery, $searchQuery, $searchQuery, $searchQuery);
@@ -84,6 +85,9 @@ include 'includes/nav.php';
         <?php
         endwhile;
         }
+      else:
+        // add redirect
+      endif;
         ?>
         </div>
       </div>

@@ -84,3 +84,7 @@ opacity: .9;
   height:14rem; /* might change*/
   width:19rem;
 }
+
+#card-hack:hover > img{
+  opacity: .8;
+}

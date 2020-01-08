@@ -19,6 +19,7 @@ include 'includes/nav.php';
 
      <div class='col-md-9'>
        <?php
+       if (isset($_GET['category'])):
        $categoryName = sanitize($_GET['category']);
        $query = ("SELECT * FROM category_db WHERE category_name = ?");
        $stmt = $db->prepare($query);
@@ -91,6 +92,9 @@ include 'includes/nav.php';
         endwhile;
         endif;
         }
+      else:
+        // add redirect restriction
+        endif;
         ?>
         </div>
       </div>
