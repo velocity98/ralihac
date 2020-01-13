@@ -93,7 +93,3 @@ opacity: .9;
     -ms-transition: all .7s ease;
     transition: all .7s ease;
 }
-
-.owl-prev.disabled {
-   display: none;
-}

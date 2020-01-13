@@ -104,10 +104,10 @@ include 'includes/nav.php';
       <div class='d-flex'>
         <div class='mr-auto'>
           <legend>
-            Most Liked Hacks
+            Trending
           </legend>
         </div>
-        <div class='owl'>
+        <div class='owl-nav'>
           <a href='trd.php' class='text-info btn btn-default border border-info view-hover'>All</a>
           <button class="owl-prev text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
           <button class="owl-next text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
@@ -118,10 +118,7 @@ include 'includes/nav.php';
       <hr />
       <div class='container'>
         <div class='row'>
-
           <div class='owl-carousel owl-theme owl-loaded'>
-
-
             <div class="owl-stage-outer">
       <div class="owl-stage">
           <?php

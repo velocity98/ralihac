@@ -114,7 +114,31 @@ $('.owl-carousel').owlCarousel({
             items:3
         }
     },
+    onTranslated:callBack
 })
+
+$(document).ready(function(){
+  $('.owl-prev').attr('disabled', 'disabled');
+  $('.owl-prev').css('cursor', 'default');
+});
+
+function callBack(){
+          if($('.owl-carousel .owl-item').last().hasClass('active')){
+                $('.owl-next').attr('disabled', 'disabled');
+                $('.owl-next').css('cursor', 'default');
+             }else{
+               $('.owl-next').removeAttr('disabled', 'disabled');
+                 $('.owl-next').css('cursor', 'pointer');
+             }
+
+         if($('.owl-carousel .owl-item').first().hasClass('active')){
+              $('.owl-prev').attr('disabled', 'disabled');
+              $('.owl-prev').css('cursor', 'default');
+             }else{
+              $('.owl-prev').removeAttr('disabled', 'disabled');
+                $('.owl-prev').css('cursor', 'pointer');
+             }
+        }
 
 var owl = $('.owl-carousel');
 
