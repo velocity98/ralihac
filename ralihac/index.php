@@ -41,12 +41,24 @@ include 'includes/nav.php';
          </div>
        </div>
        <br />
-      <legend>
-        New Hacks
-      </legend>
+       <div class='d-flex'>
+         <div class='mr-auto'>
+           <legend>
+             Latest Hacks
+           </legend>
+         </div>
+         <div class='owl-nav'>
+           <a href='#' class='text-info btn btn-default border border-info view-hover'>All</a>
+           <button class="owl-prev-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
+           <button class="owl-next-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
+         </div>
+       </div>
       <hr />
       <div class='container'>
         <div class='row'>
+          <div id='owl-two' class='owl-carousel owl-theme owl-loaded'>
+            <div class="owl-stage-outer">
+              <div class="owl-stage">
           <?php
             $conn = $db->query("SELECT * FROM hack_db ORDER BY hack_id DESC LIMIT 6");
 
@@ -56,7 +68,8 @@ include 'includes/nav.php';
             $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
             $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
             ?>
-          <div class='col-md-4'>
+        <div class='owl-item'>
+          <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
               <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
               <div class='card-header'>
@@ -93,9 +106,13 @@ include 'includes/nav.php';
               </div>
             </div>
           </div>
+        </div>
         <?php
         endwhile;
         ?>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -113,12 +130,10 @@ include 'includes/nav.php';
           <button class="owl-next text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
         </div>
       </div>
-
-
       <hr />
       <div class='container'>
         <div class='row'>
-          <div class='owl-carousel owl-theme owl-loaded'>
+          <div id='owl-three' class='owl-carousel owl-theme owl-loaded'>
             <div class="owl-stage-outer">
       <div class="owl-stage">
           <?php

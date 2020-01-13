@@ -15,6 +15,7 @@ require_once BASEURL.'/helpers/helpers.php';
 if(isset($_SESSION['SBAdmin'])){
   $admin_id = $_SESSION['SBAdmin'];
 }
+
 if(isset($_SESSION['SBuser'])){
   $user_id = $_SESSION['SBuser'];
   $userQuery = ("SELECT * FROM user_db WHERE user_id = ?");
@@ -25,4 +26,6 @@ if(isset($_SESSION['SBuser'])){
   $row = $result->fetch_assoc();
   $username = $row['user_username'];
   $stmt->close();
+}else{
+  $user_id = null;
 }

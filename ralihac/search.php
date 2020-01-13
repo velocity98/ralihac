@@ -20,6 +20,17 @@ include 'includes/nav.php';
      <div class='col-md-9'>
        <?php
        if (isset($_GET['q'])):
+         $_GET['q'] = trim(preg_replace('!\s+!', ' ', $_GET['q'])); // no extra white space in query
+         if($_GET['q'] == null){
+           ?>
+           <legend>
+             <?php echo 'Search results'?>
+           </legend>
+           <hr />
+           <?php
+            echo "<span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> No Hacks found, try searching a different Hack</span>";
+         }
+         else{
        $searchQuery = sanitize("%{$_GET['q']}%");
        $searchName = sanitize($_GET['q']);
        $conn = ("SELECT * FROM hack_db WHERE hack_name LIKE ? OR hack_description LIKE ? OR hack_user LIKE ? OR hack_category LIKE ?");
@@ -27,7 +38,6 @@ include 'includes/nav.php';
        $stmt->bind_param('ssss', $searchQuery, $searchQuery, $searchQuery, $searchQuery);
        $stmt->execute();
        $stmtResult = $stmt->get_result();
-
         ?>
       <legend>
         <?php echo 'Search results of "'.ucwords($searchName).'" <span class="text-info">('.$stmtResult->num_rows.')</span>'?>
@@ -85,6 +95,7 @@ include 'includes/nav.php';
         <?php
         endwhile;
         }
+      }
       else:
         // add redirect
       endif;

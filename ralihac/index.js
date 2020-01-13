@@ -99,7 +99,25 @@ function mostSaveButton(id){
   });
 }
 
-$('.owl-carousel').owlCarousel({
+$('#owl-two').owlCarousel({
+    loop: false,
+    navRewind: false,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    },
+    onTranslated:callBackTwo
+})
+
+$('#owl-three').owlCarousel({
     loop: false,
     navRewind: false,
     nav:true,
@@ -120,33 +138,64 @@ $('.owl-carousel').owlCarousel({
 $(document).ready(function(){
   $('.owl-prev').attr('disabled', 'disabled');
   $('.owl-prev').css('cursor', 'default');
+  $('.owl-prev-two').attr('disabled', 'disabled');
+  $('.owl-prev-two').css('cursor', 'default');
 });
 
 function callBack(){
-          if($('.owl-carousel .owl-item').last().hasClass('active')){
-                $('.owl-next').attr('disabled', 'disabled');
-                $('.owl-next').css('cursor', 'default');
-             }else{
-               $('.owl-next').removeAttr('disabled', 'disabled');
-                 $('.owl-next').css('cursor', 'pointer');
-             }
+  if($('#owl-three .owl-item').last().hasClass('active')){
+        $('.owl-next').attr('disabled', 'disabled');
+        $('.owl-next').css('cursor', 'default');
+     }else{
+       $('.owl-next').removeAttr('disabled', 'disabled');
+       $('.owl-next').css('cursor', 'pointer');
+     }
 
-         if($('.owl-carousel .owl-item').first().hasClass('active')){
-              $('.owl-prev').attr('disabled', 'disabled');
-              $('.owl-prev').css('cursor', 'default');
-             }else{
-              $('.owl-prev').removeAttr('disabled', 'disabled');
-                $('.owl-prev').css('cursor', 'pointer');
-             }
-        }
+ if($('#owl-three .owl-item').first().hasClass('active')){
+      $('.owl-prev').attr('disabled', 'disabled');
+      $('.owl-prev').css('cursor', 'default');
+     }else{
+      $('.owl-prev').removeAttr('disabled', 'disabled');
+      $('.owl-prev').css('cursor', 'pointer');
+     }
+}
 
-var owl = $('.owl-carousel');
+function callBackTwo(){
+  if($('#owl-two .owl-item').last().hasClass('active')){
+        $('.owl-next-two').attr('disabled', 'disabled');
+        $('.owl-next-two').css('cursor', 'default');
+     }else{
+       $('.owl-next-two').removeAttr('disabled', 'disabled');
+       $('.owl-next-two').css('cursor', 'pointer');
+     }
+
+ if($('#owl-two .owl-item').first().hasClass('active')){
+      $('.owl-prev-two').attr('disabled', 'disabled');
+      $('.owl-prev-two').css('cursor', 'default');
+     }else{
+      $('.owl-prev-two').removeAttr('disabled', 'disabled');
+      $('.owl-prev-two').css('cursor', 'pointer');
+     }
+}
+
+
+var owl3 = $('#owl-three');
 
 // Go to the next item
 $('.owl-next').click(function() {
-       owl.trigger('next.owl.carousel');
+       owl3.trigger('next.owl.carousel');
 })
 // Go to the previous item
 $('.owl-prev').click(function() {
-        owl.trigger('prev.owl.carousel');
+        owl3.trigger('prev.owl.carousel');
+})
+
+var owl2 = $('#owl-two');
+
+$('.owl-next-two').click(function() {
+       owl2.trigger('next.owl.carousel');
+})
+// Go to the previous item
+$('.owl-prev-two').click(function() {
+        owl2.trigger('prev.owl.carousel');
 })

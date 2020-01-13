@@ -18,7 +18,7 @@
         </div>
         </li>
         <li class='nav-item active'>
-          <a href='ah.php' class='nav-link'>Create Hack</a>
+          <a href='login.php' class='nav-link'>Create Hack</a>
         </li>
         <li class='nav-item'>
           <a href='trd.php' class='nav-link'>Trending</a>
@@ -27,9 +27,9 @@
 
       <ul class='navbar-nav mr-auto'>
         <li class="nav-item">
-          <form method="GET" action="search.php" class="form-inline my-0 my-lg-0">
+          <form method="GET" action="search.php" onSubmit="searchFilter()"  class="form-inline my-0 my-lg-0">
             <div class='input-group'>
-              <input class="form-control searchstyle" type="search" name="q" placeholder="Search">
+              <input class="form-control searchstyle" type="search" name="q"  value="<?php echo (isset($_GET['q']) ? trim(preg_replace('!\s+!', ' ', $_GET['q'])) : '')?>" placeholder="Search">
               <div class='input-group-append'>
                 <button class="btn input-group-text" type="submit"><img src='images/siteimages/find.png' class='find-image'/></button>
               </div>
