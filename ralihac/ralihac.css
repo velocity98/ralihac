@@ -86,5 +86,14 @@ opacity: .9;
 }
 
 #card-hack:hover > img{
-  opacity: .8;
+  -webkit-filter: brightness(70%);
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    transition: all .7s ease;
+}
+
+.owl-prev.disabled {
+   display: none;
 }

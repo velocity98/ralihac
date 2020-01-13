@@ -98,3 +98,31 @@ function mostSaveButton(id){
     }
   });
 }
+
+$('.owl-carousel').owlCarousel({
+    loop: false,
+    navRewind: false,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    },
+})
+
+var owl = $('.owl-carousel');
+
+// Go to the next item
+$('.owl-next').click(function() {
+       owl.trigger('next.owl.carousel');
+})
+// Go to the previous item
+$('.owl-prev').click(function() {
+        owl.trigger('prev.owl.carousel');
+})

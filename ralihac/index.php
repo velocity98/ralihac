@@ -101,12 +101,29 @@ include 'includes/nav.php';
 
       <br />
 
-      <legend>
-        Most Liked Hacks
-      </legend>
+      <div class='d-flex'>
+        <div class='mr-auto'>
+          <legend>
+            Most Liked Hacks
+          </legend>
+        </div>
+        <div class='owl'>
+          <a href='trd.php' class='text-info btn btn-default border border-info view-hover'>All</a>
+          <button class="owl-prev text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
+          <button class="owl-next text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
+        </div>
+      </div>
+
+
       <hr />
       <div class='container'>
         <div class='row'>
+
+          <div class='owl-carousel owl-theme owl-loaded'>
+
+
+            <div class="owl-stage-outer">
+      <div class="owl-stage">
           <?php
             $connection = $db->query(
               "SELECT * FROM like_db
@@ -121,7 +138,8 @@ include 'includes/nav.php';
             $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
             $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
             ?>
-          <div class='col-md-4'>
+            <div class='owl-item'>
+          <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
               <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
               <div class='card-header'>
@@ -158,9 +176,13 @@ include 'includes/nav.php';
               </div>
             </div>
           </div>
+        </div>
         <?php
         endwhile;
         ?>
+</div>
+</div>
+  </div>
         </div>
       </div>
 

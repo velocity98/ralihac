@@ -1,7 +1,7 @@
 <?php
   require_once '../system/initialize.php';
   $date = date("Y-m-d H:i:s");
-  if(isset($_POST)){
+  if(isset($_POST['id'])){
     $hack_id = sanitize($_POST['id']);
     $query = $db->query("SELECT * FROM like_db");
     while($row = mysqli_fetch_array($query)){
