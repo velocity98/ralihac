@@ -51,6 +51,20 @@ function likeButton(id){
             loadLikeCount();
         });
       }
+      else if(data == 'likeModal'){
+        // modal for like only with acc
+        $.ajax({
+          url: './parsers/modal_login_require.php',
+          type: 'POST',
+          data: {
+            method: data,
+          },
+          success: function (response){
+            $('#required').prepend(response);
+            $('#likeModal').modal('show');
+          }
+        });
+      }
     },
     error: function(data){
       alert(data);

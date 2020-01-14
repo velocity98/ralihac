@@ -70,6 +70,20 @@ function mostLikeButton(id){
               loadLikeCount();
         });
       }
+      else if(data == 'likeModal'){
+        // modal for like only with acc
+        $.ajax({
+          url: './parsers/modal_login_require.php',
+          type: 'POST',
+          data: {
+            method: data,
+          },
+          success: function (response){
+            $('#required').prepend(response);
+            $('#likeModal').modal('show');
+          }
+        });
+      }
     }
   });
 }
@@ -126,6 +140,20 @@ function likeButton(id){
             $('#mostLikeButton'+id).removeClass('text-primary').addClass('text-secondary');
             $('#mostLikeCount'+id).text(mostLikeCount - 1);
             loadLikeCount();
+        });
+      }
+      else if(data == 'likeModal'){
+        // modal for like only with acc
+        $.ajax({
+          url: './parsers/modal_login_require.php',
+          type: 'POST',
+          data: {
+            method: data,
+          },
+          success: function (response){
+            $('#required').prepend(response);
+            $('#likeModal').modal('show');
+          }
         });
       }
     },

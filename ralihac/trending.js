@@ -43,6 +43,20 @@ function mostLikeButton(id){
             $('#mostLikeCount'+id).text(likeCount - 1);
         });
       }
+      else if(data == 'likeModal'){
+        // modal for like only with acc
+        $.ajax({
+          url: './parsers/modal_login_require.php',
+          type: 'POST',
+          data: {
+            method: data,
+          },
+          success: function (response){
+            $('#required').prepend(response);
+            $('#likeModal').modal('show');
+          }
+        });
+      }
     }
   });
 }
@@ -65,6 +79,20 @@ function mostSaveButton(id){
         $('#card-hack', function() {
             $('#mostSaveButton'+id).removeClass('text-success').addClass('text-secondary');
             $('#mostSaveStatus'+id).html(' Save');
+        });
+      }
+      else if(data == 'saveModal'){
+        // modal for like only with acc
+        $.ajax({
+          url: './parsers/modal_login_require.php',
+          type: 'POST',
+          data: {
+            method: data,
+          },
+          success: function (response){
+            $('#required').prepend(response);
+            $('#saveModal').modal('show');
+          }
         });
       }
     }
