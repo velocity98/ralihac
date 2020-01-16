@@ -21,13 +21,13 @@ include 'includes/nav.php';
       <div class='d-flex'>
         <div class='mr-auto'>
           <legend>
-            Trending Hacks
+            Latest Hacks
           </legend>
         </div>
       </div>
       <hr />
       <div class='container '>
-        <div class='row view-liked'>
+        <div class='row view-latest'>
         </div>
       </div>
     </div>
@@ -36,4 +36,4 @@ include 'includes/nav.php';
 <?php
 include 'includes/footer.php';
 ?>
-<script type='text/javascript' src='trending.js'></script>
+<script type='text/javascript' src='latest.js'></script>

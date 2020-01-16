@@ -4,10 +4,10 @@ $(document).ready(function(){
 
 function loadLikedData(){
   $.ajax({
-    url: './ajax_files/ajax_php_trending.php',
+    url: './ajax_files/ajax_php_latest.php',
     method: 'GET',
     success: function (data){
-      $('.view-liked').html(data);
+      $('.view-latest').html(data);
     }
   });
 }
