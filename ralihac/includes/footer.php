@@ -18,3 +18,4 @@ $(document).ready(function(){
     $('.footer').css('margin-top', $(document).height() - ( $('.wrapper').height() + $('.footer').height()) + 20 );
 });
 </script>
+<script type='text/javascript' src='hacks.js'></script>

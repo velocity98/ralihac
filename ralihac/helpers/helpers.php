@@ -24,7 +24,7 @@ function sanitize($wrong){
   return htmlentities($wrong, ENT_QUOTES, "UTF-8");
 }
 
-function custom_echo($x, $length)
+function custom_echo($x, $length, $hackId)
 {
   if(strlen($x)<=$length)
   {
@@ -32,7 +32,7 @@ function custom_echo($x, $length)
   }
   else
   {
-    $y=substr($x,0,$length) . '...';
+    $y=substr($x,0,$length) . '<span class="dotHover" onclick="hackModal('.$hackId.')" style="cursor: pointer">...</span>';
     return $y;
   }
 }

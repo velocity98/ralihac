@@ -156,7 +156,7 @@ include 'includes/nav.php';
           <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
               <div class='card card-holder'>
-                <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' style='width: auto; height:11rem;'/>
               </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>
@@ -211,4 +211,3 @@ include 'includes/nav.php';
 include 'includes/footer.php';
  ?>
 <script type='text/javascript' src='index.js'></script>
-<script type='text/javascript' src='hacks.js'></script>

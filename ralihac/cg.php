@@ -54,14 +54,14 @@ include 'includes/nav.php';
           <div class='col-md-4'>
             <div class='card widget card-spacing' id='card-hack'>
               <div class='card card-holder'>
-                <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' style='width: auto; height:11rem;'/>
               </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo custom_echo($row['hack_description'], 56)?>
+                  <?php echo custom_echo($row['hack_description'], 56, $row['hack_id'])?>
                 </p>
               </div>
               <div class='card-footer'>

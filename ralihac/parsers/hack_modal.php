@@ -13,35 +13,47 @@
 
 
 
-  <div class="modal" id='hackModal' tabindex="-1" role="dialog">
-    <div class='container-fluid'>
-      <div class='d-inline justify-content-center'>
-        <div class='col-12'>
-          <div class='h-100 row no-gutters align-items-center'>
-
-              <div class='black-container'>
-
+<div class="modal" id='hackModal' tabindex="-1" role="dialog">
+    <div class='container'>
+      <div class='col-12' style="margin-top: 5%;">
+        <div class='row align-items-center justify-content-center'>
+            <div class='black-container' >
+              <div class="d-flex h-100 justify-content-center align-content-center" >
+                <img class="" src="<?php echo trim_image_string($row['hack_image'])?>" style="max-height: 500px; max-width: 700px; z-index: 2;">
               </div>
-              <div>
-                <div class="modal-dialog" role="document" style='height: 500px;'>
-                  <div class="modal-content" style='border-radius: 0 !important;'>
-                      <div class="modal-body" style='height: 427px;'>
-                        <p>Modal body text goes here.</p>
+            </div>
+            <div >
+              <div class="modal-dialog" role="document" style='height: 500px;'>
+                <div class="modal-content" style='border-radius: 0 !important; width: 400px;'>
+                    <div class="modal-body" style='height: 429px;'>
+                      <div>
+                        <h4 class='d-inline'><b><?php echo $row['hack_name']?></b></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                       </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <span class='text-secondary'><?php echo "By: ".$row['hack_user']?></span>
+                      <h6 class='text-secondary'><?php echo "Added on ".date_format(date_create($row['hack_date']), "m-d-Y")?></h6>
+                      <br />
+                      <h5 class='text-info'><?php echo $row['hack_category']." Hack"?></h5>
+                      <br />
+                        <p>
+                          <?php echo $row['hack_description']?>
+                        </p>
                     </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
-
-          </div>
+            </div>
         </div>
-
       </div>
+
     </div>
-  </div>
+
+</div>
 
 <?php endwhile; ?>
 <?php return print ob_get_clean();?>
