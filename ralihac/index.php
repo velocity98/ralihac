@@ -48,7 +48,7 @@ include 'includes/nav.php';
            </legend>
          </div>
          <div class='owl-nav'>
-           <a href='#' class='text-info btn btn-default border border-info view-hover'>All</a>
+           <a href='latest.php' class='text-info btn btn-default border border-info view-hover'>All</a>
            <button class="owl-prev-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
            <button class="owl-next-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
          </div>
@@ -71,13 +71,15 @@ include 'includes/nav.php';
         <div class='owl-item'>
           <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
-              <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
+              <div class='card card-holder'>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' style='width: auto; height:11rem;'/>
+              </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>
               </div>
-              <div class='card-body'>
+              <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description']?>
+                  <?php echo custom_echo($row['hack_description'], 56)?>
                 </p>
               </div>
               <div class='card-footer'>
@@ -153,13 +155,15 @@ include 'includes/nav.php';
             <div class='owl-item'>
           <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
-              <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
+              <div class='card card-holder'>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' style='width: auto; height:11rem;'/>
+              </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>
               </div>
-              <div class='card-body'>
+              <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description']?>
+                  <?php echo custom_echo($row['hack_description'], 56)?>
                 </p>
               </div>
               <div class='card-footer'>
@@ -207,3 +211,4 @@ include 'includes/nav.php';
 include 'includes/footer.php';
  ?>
 <script type='text/javascript' src='index.js'></script>
+<script type='text/javascript' src='hacks.js'></script>

@@ -67,3 +67,6 @@
 <div id='required'>
 <!-- modal for likes/Save -->
 </div>
+<div id='hackModalPlacement'>
+<!-- modal for hacks -->
+</div>

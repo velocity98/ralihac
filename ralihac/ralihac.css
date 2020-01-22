@@ -17,6 +17,10 @@ textarea {
   resize: none;
 }
 
+.card-body-css{
+  height: 140px;
+}
+
 .like-button{
   border:none ;
   background-color: transparent;
@@ -85,11 +89,33 @@ opacity: .9;
   width:19rem;
 }
 
-#card-hack:hover > img{
-  -webkit-filter: brightness(70%);
-    -webkit-transition: all .7s ease;
-    -moz-transition: all .7s ease;
-    -o-transition: all .7s ease;
-    -ms-transition: all .7s ease;
-    transition: all .7s ease;
+#card-hack > .card-holder > img:hover{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    -ms-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    -webkit-transform: scale(1.2);
+}
+
+#card-hack > .card-holder > img{
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    -ms-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    -webkit-transform: scale(1);
+}
+
+#card-hack > .card-holder{
+  overflow: hidden;
+}
+
+.black-container{
+  width: 1000px;
+  height: 500px;
+  background-color: black;
 }
