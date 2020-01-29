@@ -73,6 +73,7 @@ function mostSaveButton(id){
       }
       else if(data == 'saveModal'){
         // modal for like only with acc
+        let most = 'most';
         $.ajax({
           url: './parsers/modal_login_require.php',
           type: 'POST',

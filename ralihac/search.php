@@ -65,7 +65,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo custom_echo($row['hack_description'], 56)?>
+                  <?php echo custom_echo($row['hack_description'], 56, $hack_id)?>
                 </p>
               </div>
               <div class='card-footer'>

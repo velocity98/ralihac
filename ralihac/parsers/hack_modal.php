@@ -8,11 +8,10 @@
     $stmt->execute();
     $result = $stmt->get_result();
       while ($row = $result->fetch_assoc()):
+        $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
+        $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
         ob_start();
 ?>
-
-
-
 <div class="modal" id='hackModal' tabindex="-1" role="dialog">
     <div class='container'>
       <div class='col-12' style="margin-top: 5%;">
@@ -25,7 +24,7 @@
             <div >
               <div class="modal-dialog" role="document" style='height: 500px;'>
                 <div class="modal-content" style='border-radius: 0 !important; width: 400px;'>
-                    <div class="modal-body" style='height: 429px;'>
+                    <div class="modal-body" style='height: 449px;'>
                       <div>
                         <h4 class='d-inline'><b><?php echo $row['hack_name']?></b></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -42,8 +41,28 @@
                         </p>
                     </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button onclick='allLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
+                    <?php
+                    $store = false;
+                    while ($rowLikes = mysqli_fetch_assoc($likeQuery)) {
+                      if($rowLikes['user_id'] == $user_id){
+                        $store = true;
+                      }
+                    }
+                    echo ($store == true) ? 'text-primary' : 'text-secondary';
+                    ?>
+                      like-button mr-auto' id='allLikeButton<?php echo $row['hack_id']?>'> <span id='allLikeCount<?php echo $row['hack_id']?>'><?php echo mysqli_num_rows($likeQuery)?></span></button>
+                    <button onclick='allSaveButton(<?php echo $row['hack_id']?>)' class='fas fa-bookmark
+                      <?php
+                      $storeSaved = false;
+                      while ($rowLikes = mysqli_fetch_assoc($saveQuery)) {
+                        if($rowLikes['user_id'] == $user_id){
+                          $storeSaved = true;
+                        }
+                      }
+                      echo ($storeSaved == true) ? 'text-success' : 'text-secondary';
+                       ?>
+                      like-button float-right' id='allSaveButton<?php echo $row['hack_id']?>'><span id='allSaveStatus<?php echo $row['hack_id']?>'><?php echo ($storeSaved == true ? ' Saved' : ' Save')?></span></button>
                   </div>
                 </div>
               </div>
