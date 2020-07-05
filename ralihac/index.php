@@ -18,28 +18,84 @@ include 'includes/nav.php';
      </div>
 
      <div class='col-md-9'>
-       <legend>
-         Featured Hacks
-       </legend>
+       <div class='d-flex'>
+         <div class='mr-auto'>
+           <legend>
+             Featured Hacks
+           </legend>
+         </div>
+         <div class='owl-nav'>
+           <button class="owl-prev-three text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
+           <button class="owl-next-three text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
+         </div>
+       </div>
+
        <hr />
+<!-- here -->
        <div class='container'>
          <div class='row'>
-           <div class='col-md-4'>
-             <div class='card widget card-spacing'>
-               <img src='images/siteimages/background.jpeg' style='width: auto; height:11rem;'/>
-               <div class='card-header'>
-                 <span>Test</span>
-               </div>
-               <div class='card-body'>
+           <div id='owl-one' class='owl-carousel owl-theme owl-loaded'>
+             <div class="owl-stage-outer">
+               <div class="owl-stage">
+           <?php
+             $conn = $db->query("SELECT * FROM hack_db WHERE hack_featured = 1 ORDER BY hack_id DESC LIMIT 6");
 
+           ?>
+           <?php while ($row = mysqli_fetch_assoc($conn)):
+             $hack_id = $row['hack_id'];
+             $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
+             $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
+             ?>
+         <div class='owl-item'>
+           <div class='col-md-12'>
+             <div class='card widget card-spacing' id='card-hack'>
+               <div class='card card-holder'>
+                 <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' />
                </div>
-               <div class='card-footer text-secondary'>
-                 <a class='fas fa-thumbs-up'> 2</a>
+               <div class='card-header'>
+                 <b><?php echo $row['hack_name']?></b>
+               </div>
+               <div class='card-body card-body-css'>
+                 <p>
+                   <?php echo custom_echo($row['hack_description'], 56, $hack_id)?>
+                 </p>
+               </div>
+               <div class='card-footer'>
+                 <button onclick='featuredLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
+                 <?php
+                 $store = false;
+                 while ($rowLikes = mysqli_fetch_assoc($likeQuery)) {
+                   if($rowLikes['user_id'] == $user_id){
+                     $store = true;
+                   }
+                 }
+                 echo ($store == true) ? 'text-primary' : 'text-secondary';
+                 ?>
+                   like-button float-left' id='featuredLikeButton<?php echo $row['hack_id']?>'> <span id='featuredLikeCount<?php echo $row['hack_id']?>'><?php echo mysqli_num_rows($likeQuery)?></span></button>
+                 <button onclick='featuredSaveButton(<?php echo $row['hack_id']?>)' class='fas fa-bookmark
+                   <?php
+                   $storeSaved = false;
+                   while ($rowLikes = mysqli_fetch_assoc($saveQuery)) {
+                     if($rowLikes['user_id'] == $user_id){
+                       $storeSaved = true;
+                     }
+                   }
+                   echo ($storeSaved == true) ? 'text-success' : 'text-secondary';
+                    ?>
+                   like-button float-right' id='featuredSaveButton<?php echo $row['hack_id']?>'><span id='featuredSaveStatus<?php echo $row['hack_id']?>'><?php echo ($storeSaved == true ? ' Saved' : ' Save')?></span></button>
+               </div>
+             </div>
+           </div>
+         </div>
+         <?php
+         endwhile;
+         ?>
                </div>
              </div>
            </div>
          </div>
        </div>
+<!-- to here -->
        <br />
        <div class='d-flex'>
          <div class='mr-auto'>
@@ -72,7 +128,7 @@ include 'includes/nav.php';
           <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
               <div class='card card-holder'>
-                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' style='width: auto; height:11rem;'/>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)'/>
               </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>
@@ -156,7 +212,7 @@ include 'includes/nav.php';
           <div class='col-md-12'>
             <div class='card widget card-spacing' id='card-hack'>
               <div class='card card-holder'>
-                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' style='width: auto; height:11rem;'/>
+                <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' />
               </div>
               <div class='card-header'>
                 <b><?php echo $row['hack_name']?></b>

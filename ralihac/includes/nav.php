@@ -1,6 +1,6 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info">
-  <div class="container">
-    <a class="navbar-brand" href="index.php">Ralihac</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info"  style=' box-shadow: 0 3px 3px -3px rgba(0,0,0,.6);'  >
+  <div class="container" >
+    <a class="navbar-brand" href="index.php" ><img src='images/siteimages/RalihacLogo.png' style='max-height: 3rem; border: solid; border-color: white; border-radius: 100%; border-width: 2px'/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +11,24 @@
           <div class="dropdown-menu">
             <?php
             $categoryQuery = $db->query("SELECT * FROM category_db ORDER BY category_name");
+            $iconArray = [
+              'lightbulb',
+              'book',
+              'wallet',
+              'utensils',
+              'dice-six',
+              'medkit',
+              'laugh',
+              'heart',
+              'microchip'
+            ];
+            $i = 0;
              while ($row = mysqli_fetch_assoc($categoryQuery)):
             ?>
-          <a class="dropdown-item" href="cg.php?category=<?php echo strtolower($row['category_name'])?>"><?php echo $row['category_name']?></a>
-            <?php endwhile;?>
+          <a class="dropdown-item" href="cg.php?category=<?php echo strtolower($row['category_name'])?>"><i class="fa fa-<?php echo $iconArray[$i]?>" aria-hidden="true" style='width: auto'></i> <?php echo $row['category_name']?></a>
+            <?php
+            $i++;
+            endwhile;?>
         </div>
         </li>
         <li class='nav-item active'>

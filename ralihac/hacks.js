@@ -29,6 +29,8 @@ function allLikeButton(id){
           $('#likeCount'+id).text(likeCount + 1);
           $('#mostLikeButton'+id).removeClass('text-secondary').addClass('text-primary');
           $('#mostLikeCount'+id).text(likeCount + 1);
+          $('#featuredLikeButton'+id).removeClass('text-secondary').addClass('text-primary');
+          $('#featuredLikeCount'+id).text(likeCount + 1);
         });
       }
       else if(data == 'unliked') {
@@ -39,6 +41,8 @@ function allLikeButton(id){
             $('#mostLikeCount'+id).text(likeCount - 1);
             $('#likeButton'+id).removeClass('text-primary').addClass('text-secondary');
             $('#likeCount'+id).text(likeCount - 1);
+            $('#featuredLikeButton'+id).removeClass('text-primary').addClass('text-secondary');
+            $('#featuredLikeCount'+id).text(likeCount - 1);
         });
       }
       else if(data == 'likeModal'){
@@ -77,6 +81,8 @@ function allSaveButton(id){
           $('#mostSaveStatus'+id).html(' Saved');
           $('#saveButton'+id).removeClass('text-secondary').addClass('text-success');
           $('#saveStatus'+id).html(' Saved');
+          $('#featuredSaveButton'+id).removeClass('text-secondary').addClass('text-success');
+          $('#featuredSaveStatus'+id).html(' Saved');
         });
       }
       else if(data == 'removed') {
@@ -87,6 +93,8 @@ function allSaveButton(id){
             $('#mostSaveStatus'+id).html(' Save');
             $('#saveButton'+id).removeClass('text-success').addClass('text-secondary');
             $('#saveStatus'+id).html(' Save');
+            $('#featuredSaveButton'+id).removeClass('text-success').addClass('text-secondary');
+            $('#featuredSaveStatus'+id).html(' Save');
         });
       }
       else if(data == 'saveModal'){

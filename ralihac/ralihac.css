@@ -17,9 +17,6 @@ textarea {
   resize: none;
 }
 
-.card-body-css{
-  height: 140px;
-}
 
 .like-button{
   border:none ;
@@ -27,10 +24,13 @@ textarea {
 }
 
 .row-margin{
-  margin-top : 3rem;
+  margin-top : 2rem;
 }
 
 .widget{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7rem;
   -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
   -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,1);
   box-shadow: 1px 2px 8px -6px rgba(0,0,0,1);
@@ -59,12 +59,35 @@ opacity: .9;
   .searchstyle{
     width: 25rem !important;
   }
+  .card-holder > img {
+    width: auto;
+    height:11rem;
+  }
 }
 
-@media screen and (max-width: 765px){
+@media screen and (max-width: 767px){
   .searchstyle{
     width: auto !important;
   }
+  /*
+  card body size more mobile
+  */
+  .card-body-css{
+    display: none;
+  }
+  .card-header > b{
+    height: 40px;
+    font-size: 75%;
+
+  }
+  .like-button{
+    font-size: 70%;
+  }
+  .card-holder > img{
+    width: auto;
+    height: 7rem;
+  }
+
 }
 
 .find-image{
