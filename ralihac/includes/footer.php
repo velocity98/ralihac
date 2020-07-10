@@ -1,8 +1,9 @@
   </div>
+</div>
 </body>
 
-<footer class="container-fluid text-center footer bg-info">
-  <p>© <?php echo date("Y"); ?> Ralihac All Rights Reserved</p>
+<footer class="text-center footer bg-info">
+  <p >© <?php echo date("Y"); ?> Ralihac All Rights Reserved</p>
 </footer>
 </html>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -14,8 +15,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src='./js/owl.carousel.js'></script>
 <script>
-$(document).ready(function(){
-    $('.footer').css('margin-top', $(document).height() - ( $('.wrapper').height() + $('.footer').height()) + 20 );
-});
-</script>
+// $(document).ready(function(){
+//     $('.footer').css('margin-top', $(document).height() - ( $('.wrapper').height() + $('.footer').height()) );
+// });
+// </script>
 <script type='text/javascript' src='hacks.js'></script>

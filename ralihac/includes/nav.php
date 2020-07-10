@@ -31,7 +31,7 @@
             endwhile;?>
         </div>
         </li>
-        <li class='nav-item active'>
+        <li class='nav-item'>
           <a href='<?php echo (is_logged_in_user()) == false ? 'login.php' : 'ah.php' ?>' class='nav-link'>Create Hack</a>
         </li>
         <li class='nav-item'>
