@@ -24,18 +24,7 @@ function sanitize($wrong){
   return htmlentities($wrong, ENT_QUOTES, "UTF-8");
 }
 
-function custom_echo($x, $length, $hackId)
-{
-  if(strlen($x)<=$length)
-  {
-    return $x;
-  }
-  else
-  {
-    $y=substr($x,0,$length) . '<span class="dotHover" onclick="hackModal('.$hackId.')" style="cursor: pointer">...</span>';
-    return $y;
-  }
-}
+
 
 function is_logged_in(){
   if(isset($_SESSION['SBAdmin']) && $_SESSION['SBAdmin'] > 0){

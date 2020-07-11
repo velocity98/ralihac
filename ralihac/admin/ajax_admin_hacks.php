@@ -126,7 +126,7 @@
                           <span>".$hacks['hack_name']."</span>
                         </div>
                         <div class='card-body card-body-css' id='card-body' style='display: none'>
-                          <p class='card-text'>".custom_echo($hacks['hack_description'], 68, $hacks['hack_id'])."</p>
+                          <p class='card-text'>".$hacks['hack_description']."</p>
                         </div>
                         <div class='card-footer' id='noMove'>
                           <button class='btn btn-info border-dark' onClick='editHack(".$hacks['hack_id'].")'>Edit</button>&nbsp<button class='btn btn-light border-info text-info' onClick='deleteHack(".$hacks['hack_id'].")'>Delete</button>

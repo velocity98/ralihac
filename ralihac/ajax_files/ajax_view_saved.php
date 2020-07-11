@@ -26,7 +26,7 @@ require_once '../system/initialize.php';
         </div>
         <div class='card-body card-body-css'>
           <p>
-            ".custom_echo($row['hack_description'], 56, $hack_id)."
+            ".$row['hack_description']."
           </p>
         </div>
         <div class='card-footer'>

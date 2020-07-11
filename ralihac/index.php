@@ -52,11 +52,14 @@ include 'includes/nav.php';
                <div class='card-header'>
                  <b><?php echo $row['hack_name']?></b>
                </div>
-               <div class='card-body card-body-css'>
-                 <p>
-                   <?php echo custom_echo($row['hack_description'], 56, $hack_id)?>
-                 </p>
+               <div>
+                <div class='card-body card-body-css' >
+                  <div class='card-text'>
+                    <?php echo $row['hack_description'];?>
+                  </div>
+                </div>
                </div>
+
                <div class='card-footer'>
                  <button onclick='featuredLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
                  <?php
@@ -132,7 +135,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo custom_echo($row['hack_description'], 56, $hack_id)?>
+                  <?php echo $row['hack_description']?>
                 </p>
               </div>
               <div class='card-footer'>
@@ -216,7 +219,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo custom_echo($row['hack_description'], 56, $hack_id)?>
+                  <?php echo $row['hack_description']?>
                 </p>
               </div>
               <div class='card-footer'>
