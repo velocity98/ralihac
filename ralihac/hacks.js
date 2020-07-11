@@ -94,3 +94,7 @@ function randomize(){
     }
   });
 }
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})

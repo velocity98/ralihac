@@ -79,8 +79,8 @@
 
 </nav>
 
-<div id='hackModalPlacement'>
-<!-- modal for hacks -->
+<div id='information'>
+<!-- modal for info -->
 </div>
 <div id='required'>
 <!-- modal for likes/Save -->
