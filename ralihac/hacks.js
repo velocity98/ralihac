@@ -84,3 +84,13 @@ function allSaveButton(id){
     }
   });
 }
+
+function randomize(){
+  $.ajax({
+    url: './ajax_files/ajax_php_randomize.php',
+    type: 'GET',
+    success: function(data){
+      window.location.href = "h.php?hid="+data;
+    }
+  });
+}
