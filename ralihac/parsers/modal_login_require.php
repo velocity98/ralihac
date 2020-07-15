@@ -14,6 +14,10 @@ if (isset($_POST['method']) == 'likeModal'){
 
       <div class='modal-body'>
         <p>You cannot <b class='text-info'>$method</b> this Hack yet, you would need to create an account here in Ralihac. Try to create your account later on or press the <b>Create Account</b> button below.</p>
+
+        <p>
+        If you're already a member of Ralihac, click <a href='login.php'>here</a> to login
+        </p>
       </div>
 
       <div class='modal-footer'>
@@ -40,6 +44,9 @@ if (isset($_POST['method']) == 'saveModal'){
 
       <div class='modal-body'>
         <p>You cannot <b class='text-success'>$method</b> this Hack yet, you would need to create an account here in Ralihac. Try to create your account later on or press the <b>Create Account</b> button below.</p>
+        <p>
+        If you're already a member of Ralihac, click <a href='login.php'>here</a> to login
+        </p>
       </div>
 
       <div class='modal-footer'>

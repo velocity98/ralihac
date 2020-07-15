@@ -48,4 +48,6 @@ function trim_image_string($string){
   $output = substr($string, 3);
   return $output;
 }
+
+
  ?>

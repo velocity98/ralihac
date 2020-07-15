@@ -98,3 +98,32 @@ function randomize(){
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+function deleteHackModal(hackId){
+  $.ajax({
+    url: './parsers/delete_modal.php',
+    type: 'POST',
+    data:
+      {
+        id: hackId
+      },
+    success: function(response){
+      $('#required').prepend(response);
+      $('#deleteModal').modal('show');
+    }
+  });
+}
+
+function deleteHack(hackId){
+  $.ajax({
+    url: './ajax_files/ajax_php_delete_hacks.php',
+    type: 'POST',
+    data:
+      {
+        id: hackId
+      },
+    success: function(response){
+        window.location.href = "index.php";
+    }
+  });
+}

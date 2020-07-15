@@ -5,6 +5,7 @@ require_once '../system/initialize.php';
     "SELECT * FROM like_db
       LEFT JOIN hack_db
       ON like_db.hack_id = hack_db.hack_id
+      WHERE (hack_archive = 0 AND hack_status = 'approved')
       GROUP BY like_db.hack_id
       ORDER BY count(*) DESC"
     );
@@ -24,7 +25,7 @@ require_once '../system/initialize.php';
         </div>
         <div class='card-body card-body-css'>
           <p>
-            ".$row['hack_description']."
+            ".nl2br($row['hack_description'])."
           </p>
         </div>
         <div class='card-footer'>

@@ -30,7 +30,7 @@ include 'includes/nav.php';
        $searchQuery = sanitize("%{$_GET['q']}%");
        $searchName = sanitize($_GET['q']);
        $conn = ("SELECT hack_db.*, user_db.user_username FROM hack_db
-         LEFT JOIN user_db ON hack_db.user_id = user_db.user_id WHERE hack_db.hack_name LIKE ? OR hack_db.hack_description LIKE ? OR user_db.user_username LIKE ? OR hack_db.hack_category LIKE ?");
+         LEFT JOIN user_db ON hack_db.user_id = user_db.user_id WHERE (hack_db.hack_name LIKE ? OR hack_db.hack_description LIKE ? OR user_db.user_username LIKE ? OR hack_db.hack_category LIKE ?) AND (hack_archive = 0 AND hack_status = 'approved')");
        $stmt = $db->prepare($conn);
        $stmt->bind_param('ssss', $searchQuery, $searchQuery, $searchQuery, $searchQuery);
        $stmt->execute();
@@ -62,7 +62,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description']?>
+                  <?php echo nl2br($row['hack_description'])?>
                 </p>
               </div>
               <div class='card-footer'>

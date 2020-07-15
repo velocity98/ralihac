@@ -4,7 +4,7 @@ require_once '../system/initialize.php';
     "SELECT * FROM like_db
       LEFT JOIN hack_db
       ON like_db.hack_id = hack_db.hack_id
-      WHERE like_db.user_id = $user_id
+      WHERE like_db.user_id = $user_id AND hack_archive = 0 AND hack_status = 'approved'
       ORDER BY like_db.like_date DESC
       LIMIT 3"
     );
@@ -24,7 +24,7 @@ require_once '../system/initialize.php';
         </div>
         <div class='card-body card-body-css'>
           <p>
-            ".$row['hack_description']."
+            ".nl2br($row['hack_description'])."
           </p>
         </div>
         <div class='card-footer'>

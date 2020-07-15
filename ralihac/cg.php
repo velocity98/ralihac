@@ -34,9 +34,11 @@ include 'includes/nav.php';
       <div class='container'>
         <div class='row'>
           <?php
-            $conn = ("SELECT * FROM hack_db WHERE hack_category = ? ORDER BY hack_id DESC");
+            $conn = ("SELECT * FROM hack_db WHERE (hack_category = ? AND hack_archive = ? AND hack_status = ?) ORDER BY hack_id DESC");
+            $flag = 0;
+            $status = 'approved';
             $stmt = $db->prepare($conn);
-            $stmt->bind_param('s', $categoryName);
+            $stmt->bind_param('sis', $categoryName, $flag, $status);
             $stmt->execute();
             $stmtResult = $stmt->get_result();
             if($stmtResult->num_rows == 0):
@@ -57,7 +59,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description'];?>
+                  <?php echo nl2br($row['hack_description']);?>
                 </p>
               </div>
               <div class='card-footer'>

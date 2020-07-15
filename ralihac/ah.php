@@ -36,9 +36,7 @@ $categoryquery = $db->query($categorydb);
          include 'includes/randWidget.php';
          include 'includes/profileWidget.php';
         ?>
-
       </div>
-
     </div>
 
     <div class='col-md-9'>

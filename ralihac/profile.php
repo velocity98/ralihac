@@ -26,7 +26,7 @@ include 'includes/nav.php';
             </legend>
           </div>
           <div>
-            <a href='saved.php' class='text-info btn btn-default border border-info view-hover'>View All</a>
+            <a href='saved.php' class='btn btn-outline-info'>View All</a>
           </div>
         </div>
         <hr />
@@ -43,7 +43,7 @@ include 'includes/nav.php';
           </legend>
         </div>
         <div>
-          <a href='liked.php' class='text-info btn btn-default border border-info view-hover'>View All</a>
+          <a href='liked.php' class='btn btn-outline-info'>View All</a>
         </div>
       </div>
       <hr />

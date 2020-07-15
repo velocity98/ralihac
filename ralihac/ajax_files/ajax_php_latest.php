@@ -1,7 +1,7 @@
 <?php
 require_once '../system/initialize.php';
 
-  $connection = $db->query("SELECT * FROM hack_db ORDER BY hack_id DESC");
+  $connection = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC");
   $output = '';
  while ($row = mysqli_fetch_assoc($connection)){
   $hack_id = $row['hack_id'];
@@ -18,7 +18,7 @@ require_once '../system/initialize.php';
         </div>
         <div class='card-body card-body-css'>
           <p>
-            ".$row['hack_description']."
+            ".nl2br($row['hack_description'])."
           </p>
         </div>
         <div class='card-footer'>

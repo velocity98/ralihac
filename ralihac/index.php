@@ -4,6 +4,7 @@ include 'includes/head.php';
 include 'includes/nav.php';
  ?>
  <div class="container">
+
    <div class="row row-margin">
      <div class="col-md-3">
        <div class='stick'>
@@ -35,7 +36,7 @@ include 'includes/nav.php';
              <div class="owl-stage-outer">
                <div class="owl-stage">
            <?php
-             $conn = $db->query("SELECT * FROM hack_db WHERE hack_featured = 1 ORDER BY hack_id DESC LIMIT 6");
+             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC LIMIT 6");
 
            ?>
            <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -55,7 +56,7 @@ include 'includes/nav.php';
                <div>
                 <div class='card-body card-body-css' >
                   <div class='card-text'>
-                    <?php echo $row['hack_description'];?>
+                    <?php echo nl2br($row['hack_description']);?>
                   </div>
                 </div>
                </div>
@@ -104,7 +105,7 @@ include 'includes/nav.php';
            </legend>
          </div>
          <div class='owl-nav'>
-           <a href='latest.php' class='text-info btn btn-default border border-info view-hover'>All</a>
+           <a href='latest.php' class='btn btn-outline-info'>All</a>
            <button class="owl-prev-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
            <button class="owl-next-two text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
          </div>
@@ -116,7 +117,7 @@ include 'includes/nav.php';
             <div class="owl-stage-outer">
               <div class="owl-stage">
           <?php
-            $conn = $db->query("SELECT * FROM hack_db ORDER BY hack_id DESC LIMIT 6");
+            $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC LIMIT 6");
 
           ?>
           <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -135,7 +136,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description']?>
+                  <?php echo nl2br($row['hack_description'])?>
                 </p>
               </div>
               <div class='card-footer'>
@@ -183,7 +184,7 @@ include 'includes/nav.php';
           </legend>
         </div>
         <div class='owl-nav'>
-          <a href='trd.php' class='text-info btn btn-default border border-info view-hover'>All</a>
+          <a href='trd.php' class='btn btn-outline-info'>All</a>
           <button class="owl-prev text-light btn btn-info border border-dark"><i class='fas fa-arrow-left'></i></button>
           <button class="owl-next text-light btn btn-info border border-dark"><i class='fas fa-arrow-right'></i></button>
         </div>
@@ -199,6 +200,7 @@ include 'includes/nav.php';
               "SELECT * FROM like_db
                 LEFT JOIN hack_db
                 ON like_db.hack_id = hack_db.hack_id
+                WHERE (hack_archive = 0 AND hack_status = 'approved')
                 GROUP BY like_db.hack_id
                 ORDER BY count(*) DESC
                 LIMIT 6");
@@ -219,7 +221,7 @@ include 'includes/nav.php';
               </div>
               <div class='card-body card-body-css'>
                 <p>
-                  <?php echo $row['hack_description']?>
+                  <?php echo nl2br($row['hack_description'])?>
                 </p>
               </div>
               <div class='card-footer'>
