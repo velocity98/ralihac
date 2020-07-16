@@ -17,7 +17,7 @@ ob_start();
           </p>
           <div class='d-inline float-right'>
             <button class='btn btn-info border border-dark' onclick='deleteHack(<?php echo $hackId?>)'>Yes</button>
-            <button class='btn btn-outline-info' data-dismiss="modal">No</button>
+            <button class='btn btn-outline-danger' data-dismiss="modal">No</button>
           </div>
       </div>
     </div>

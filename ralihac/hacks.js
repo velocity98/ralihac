@@ -114,7 +114,7 @@ function deleteHackModal(hackId){
   });
 }
 
-function deleteHack(hackId){
+function deleteHack(hackId){ //reusable
   $.ajax({
     url: './ajax_files/ajax_php_delete_hacks.php',
     type: 'POST',
@@ -124,6 +124,22 @@ function deleteHack(hackId){
       },
     success: function(response){
         window.location.href = "index.php";
+    }
+  });
+}
+
+function editHackModal(hackId){
+  $.ajax({
+    url: './parsers/edit_modal.php',
+    type: 'POST',
+    data:
+      {
+        id: hackId
+      },
+    success: function(response){
+      $('#required').prepend(response);
+      $('#editModal').modal('show');
+      $.getScript("editHack.js");
     }
   });
 }
