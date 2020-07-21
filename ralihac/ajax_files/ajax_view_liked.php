@@ -4,7 +4,7 @@ require_once '../system/initialize.php';
     "SELECT * FROM like_db
       LEFT JOIN hack_db
       ON like_db.hack_id = hack_db.hack_id
-      WHERE like_db.user_id = $user_id AND hack_archive = 0 AND hack_status = 'approved'
+      WHERE like_db.user_id = $user_id AND hack_archive = 0
       ORDER BY like_db.like_date DESC
       LIMIT 3"
     );
@@ -19,13 +19,14 @@ require_once '../system/initialize.php';
       <div class='card card-holder'>
         <img src='".trim_image_string($row['hack_image'])."' onclick='hackModal($hack_id)' />
         </div>
-        <div class='card-header'>
-          <b>".$row['hack_name']."</b>
-        </div>
-        <div class='card-body card-body-css'>
-          <p>
-            ".nl2br($row['hack_description'])."
-          </p>
+        <div class='card-body card-body-css p-3' >
+          <div class='mb-2'>
+              <h5><b>".$row['hack_name']."</b></h5>
+          </div>
+          <div class='card-text my-auto'>
+                ".nl2br($row['hack_description'])."
+
+          </div>
         </div>
         <div class='card-footer'>
           <button onclick='likeButton(".$row['hack_id'].")' class='fas fa-ban

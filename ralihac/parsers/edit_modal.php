@@ -10,7 +10,9 @@ $stmt->execute();
 $stmtResult = $stmt->get_result();
 $row = mysqli_fetch_assoc($stmtResult);
 
+$categoryQuery = $db->query("SELECT * FROM category_db");
 ob_start();
+
 ?>
 <div id='editModal' class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -19,22 +21,27 @@ ob_start();
         <div class='mb-3'>
           <h5 class='text-info d-inline'><span class='fas fa-edit'></span> Edit Life Hack</h5>
         </div>
-        <form method="post" action="" onsubmit="return editHack()" id="submitForm" name="editForm">
+        <form method="post" onsubmit="return editHack(<?php echo $row['hack_id']; ?>)" id="submitForm" name="editForm">
         <div class="form-group">
           <label for="recipient-name" class="col-form-label">Hack Name:</label>
-          <input type="text" value='<?php echo $row['hack_name']?>' class="form-control" id="hackName" placeholder="Enter Life Hack Name"/ name='hackName'>
+          <input type="text" value='<?php echo $row['hack_name']?>' class="form-control" id="hackName" name='hackName' />
           <small id="hackNameError" class="form-text val_error text-danger w-100"></small>
         </div>
         <div class='form-group'>
           <label for'category' class='col-form-label'>Category:</label>
             <select class="form-control" id='hackCategory' name='hackCategory'>
+              <option >
 
+              </option>
+              <?php while ($categoryRow = mysqli_fetch_assoc($categoryQuery)): ?>
+                  <option <?php echo (($categoryRow['category_name'] == $row['hack_category']) ? 'selected' : '') ?>><?php echo $categoryRow['category_name'] ?></option>
+                <?php endwhile;?>
             </select>
           <small id="hackCategoryError" class="form-text val_error text-danger w-100"></small>
         </div>
         <div class="form-group">
           <label for="description" class="col-form-label">Description:</label>
-          <textarea class="form-control" id='hackDescrption' placeholder='Enter Life Hack Description' rows="6" name='hackDescrption'><?php echo $row['hack_description']?></textarea>
+          <textarea class="form-control" id='hackDescrption' rows="6" name='hackDescrption'><?php echo $row['hack_description']?></textarea>
           <small id="hackDescrptionError" class="form-text val_error text-danger w-100"></small>
         </div>
         <div class='d-inline float-right'>

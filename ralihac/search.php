@@ -30,7 +30,7 @@ include 'includes/nav.php';
        $searchQuery = sanitize("%{$_GET['q']}%");
        $searchName = sanitize($_GET['q']);
        $conn = ("SELECT hack_db.*, user_db.user_username FROM hack_db
-         LEFT JOIN user_db ON hack_db.user_id = user_db.user_id WHERE (hack_db.hack_name LIKE ? OR hack_db.hack_description LIKE ? OR user_db.user_username LIKE ? OR hack_db.hack_category LIKE ?) AND (hack_archive = 0 AND hack_status = 'approved')");
+         LEFT JOIN user_db ON hack_db.user_id = user_db.user_id WHERE (hack_db.hack_name LIKE ? OR hack_db.hack_description LIKE ? OR user_db.user_username LIKE ? OR hack_db.hack_category LIKE ?) AND (hack_archive = 0)");
        $stmt = $db->prepare($conn);
        $stmt->bind_param('ssss', $searchQuery, $searchQuery, $searchQuery, $searchQuery);
        $stmt->execute();
@@ -57,13 +57,14 @@ include 'includes/nav.php';
               <div class='card card-holder'>
                 <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)'/>
               </div>
-              <div class='card-header'>
-                <b><?php echo $row['hack_name']?></b>
-              </div>
-              <div class='card-body card-body-css'>
-                <p>
-                  <?php echo nl2br($row['hack_description'])?>
-                </p>
+              <div class='card-body card-body-css p-3' >
+                <div class='mb-2'>
+                    <h5><b><?php echo $row['hack_name']?></b></h5>
+                </div>
+                <div class='card-text my-auto'>
+                      <?php echo nl2br($row['hack_description']);?>
+
+                </div>
               </div>
               <div class='card-footer'>
                 <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up

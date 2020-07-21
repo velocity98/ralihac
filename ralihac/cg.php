@@ -34,11 +34,10 @@ include 'includes/nav.php';
       <div class='container'>
         <div class='row'>
           <?php
-            $conn = ("SELECT * FROM hack_db WHERE (hack_category = ? AND hack_archive = ? AND hack_status = ?) ORDER BY hack_id DESC");
+            $conn = ("SELECT * FROM hack_db WHERE (hack_category = ? AND hack_archive = ?) ORDER BY hack_id DESC");
             $flag = 0;
-            $status = 'approved';
             $stmt = $db->prepare($conn);
-            $stmt->bind_param('sis', $categoryName, $flag, $status);
+            $stmt->bind_param('si', $categoryName, $flag);
             $stmt->execute();
             $stmtResult = $stmt->get_result();
             if($stmtResult->num_rows == 0):
@@ -54,13 +53,14 @@ include 'includes/nav.php';
               <div class='card card-holder'>
                 <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)'/>
               </div>
-              <div class='card-header'>
-                <b><?php echo $row['hack_name']?></b>
-              </div>
-              <div class='card-body card-body-css'>
-                <p>
-                  <?php echo nl2br($row['hack_description']);?>
-                </p>
+              <div class='card-body card-body-css p-3' >
+                <div class='mb-2'>
+                    <h5><b><?php echo $row['hack_name']?></b></h5>
+                </div>
+                <div class='card-text my-auto'>
+                      <?php echo nl2br($row['hack_description']);?>
+
+                </div>
               </div>
               <div class='card-footer'>
                 <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up

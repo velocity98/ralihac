@@ -35,7 +35,7 @@ hackDescrption.addEventListener("blur", hackDescrptionVerify, true);
 
 
 function editHack(hackId){ //reusable
-
+   event.preventDefault();
   if (hackName.value == "" || hackCategory.value == "" || hackDescrption.value == "" ){
     var variables = [hackName, hackCategory, hackDescrption];
     var errors = [hackNameError, hackCategoryError, hackDescrptionError];
@@ -46,13 +46,13 @@ function editHack(hackId){ //reusable
         variables[i].style.border = "1.3px solid red";
           switch (i){
             case 0:
-                errors[i].textContent = "Enter Username";
+                errors[i].textContent = "Enter Life Hack Name";
                 break;
             case 1:
-                errors[i].textContent = "Enter Password";
+                errors[i].textContent = "Select Category";
                 break;
             case 2:
-                errors[i].textContent = "Enter Confirm Password";
+                errors[i].textContent = "Enter Life Hack Desciption";
                 break;
           }
         variables[i].focus();
@@ -62,18 +62,30 @@ function editHack(hackId){ //reusable
     if(countErrors.length > 0){
         return false;
     }
-    else if(countErrors.length = 0){
+      }
+
       $.ajax({
-        url: '.ajax_files/ajax_php_edit_hacks.php',
+        url: './ajax_files/ajax_php_edit_hacks.php',
         type: 'POST',
+        dataType: 'JSON',
         data:
           {
-            id: hackId
+            id: hackId,
+            name: hackName.value,
+            category: hackCategory.value,
+            description: hackDescrption.value
           },
         success: function(response){
-
+          $('#hackNameModify').html('<b>'+response[0].name+'</b>');
+          $('#hackCategoryModify').html(response[0].category);
+          $('#hackDescriptionModify').html(response[0].description);
+          $(function () {
+             $('#editModal').modal('toggle');
+          });
         }
       });
-    }
-    }
+
+
+
+
   }

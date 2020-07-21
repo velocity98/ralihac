@@ -1,7 +1,7 @@
 <?php
 require_once '../system/initialize.php';
 
-  $connection = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC");
+  $connection = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_id DESC");
   $output = '';
  while ($row = mysqli_fetch_assoc($connection)){
   $hack_id = $row['hack_id'];
@@ -13,13 +13,14 @@ require_once '../system/initialize.php';
       <div class='card card-holder'>
         <img src='".trim_image_string($row['hack_image'])."' onclick='hackModal($hack_id)'/>
         </div>
-        <div class='card-header'>
-          <b>".$row['hack_name']."</b>
-        </div>
-        <div class='card-body card-body-css'>
-          <p>
-            ".nl2br($row['hack_description'])."
-          </p>
+        <div class='card-body card-body-css p-3' >
+          <div class='mb-2'>
+              <h5><b>".$row['hack_name']."</b></h5>
+          </div>
+          <div class='card-text my-auto'>
+                ".nl2br($row['hack_description'])."
+
+          </div>
         </div>
         <div class='card-footer'>
           <button onclick='mostLikeButton(".$row['hack_id'].")' class='fas fa-thumbs-up

@@ -36,7 +36,7 @@ include 'includes/nav.php';
              <div class="owl-stage-outer">
                <div class="owl-stage">
            <?php
-             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC LIMIT 6");
+             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0) ORDER BY hack_id DESC LIMIT 6");
 
            ?>
            <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -50,16 +50,18 @@ include 'includes/nav.php';
                <div class='card card-holder'>
                  <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' />
                </div>
-               <div class='card-header'>
-                 <b><?php echo $row['hack_name']?></b>
-               </div>
-               <div>
-                <div class='card-body card-body-css' >
-                  <div class='card-text'>
-                    <?php echo nl2br($row['hack_description']);?>
+
+
+                  <div class='card-body card-body-css p-3' >
+                    <div class='mb-2'>
+                        <h5><b><?php echo $row['hack_name']?></b></h5>
+                    </div>
+                    <div class='card-text my-auto'>
+                          <?php echo nl2br($row['hack_description']);?>
+
+                    </div>
                   </div>
-                </div>
-               </div>
+
 
                <div class='card-footer'>
                  <button onclick='featuredLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
@@ -117,7 +119,7 @@ include 'includes/nav.php';
             <div class="owl-stage-outer">
               <div class="owl-stage">
           <?php
-            $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0 AND hack_status = 'approved') ORDER BY hack_id DESC LIMIT 6");
+            $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_id DESC LIMIT 6");
 
           ?>
           <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -131,13 +133,14 @@ include 'includes/nav.php';
               <div class='card card-holder'>
                 <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)'/>
               </div>
-              <div class='card-header'>
-                <b><?php echo $row['hack_name']?></b>
-              </div>
-              <div class='card-body card-body-css'>
-                <p>
-                  <?php echo nl2br($row['hack_description'])?>
-                </p>
+              <div class='card-body card-body-css p-3' >
+                <div class='mb-2'>
+                    <h5><b><?php echo $row['hack_name']?></b></h5>
+                </div>
+                <div class='card-text my-auto'>
+                      <?php echo nl2br($row['hack_description']);?>
+
+                </div>
               </div>
               <div class='card-footer'>
                 <button onclick='likeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up
@@ -200,7 +203,7 @@ include 'includes/nav.php';
               "SELECT * FROM like_db
                 LEFT JOIN hack_db
                 ON like_db.hack_id = hack_db.hack_id
-                WHERE (hack_archive = 0 AND hack_status = 'approved')
+                WHERE (hack_archive = 0)
                 GROUP BY like_db.hack_id
                 ORDER BY count(*) DESC
                 LIMIT 6");
@@ -216,13 +219,14 @@ include 'includes/nav.php';
               <div class='card card-holder'>
                 <img src='<?php echo trim_image_string($row['hack_image'])?>' onclick='hackModal(<?= $row['hack_id']?>)' />
               </div>
-              <div class='card-header'>
-                <b><?php echo $row['hack_name']?></b>
-              </div>
-              <div class='card-body card-body-css'>
-                <p>
-                  <?php echo nl2br($row['hack_description'])?>
-                </p>
+              <div class='card-body card-body-css p-3' >
+                <div class='mb-2'>
+                    <h5><b><?php echo $row['hack_name']?></b></h5>
+                </div>
+                <div class='card-text my-auto'>
+                      <?php echo nl2br($row['hack_description']);?>
+
+                </div>
               </div>
               <div class='card-footer'>
                 <button onclick='mostLikeButton(<?php echo $row['hack_id']?>)' class='fas fa-thumbs-up

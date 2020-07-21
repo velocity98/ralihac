@@ -100,10 +100,15 @@ $(document).ready(function (e) { // Ajax call for Image
         processData:false,
         success: function(data)
           {
-            $("#message").html(data);
-            if(data == ''){
+            if (data == 'explicit'){
+              // modal for explicity
+            }
+            else if (data != 'uploaded'){
+              $("#message").html(data);
+            }else if (data == 'uploaded'){
               $('#modalImage').modal('show');
             }
+
           }
       });
   }));

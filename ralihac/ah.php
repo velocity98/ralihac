@@ -22,7 +22,7 @@ $categoryquery = $db->query($categorydb);
       </div>
       <div class='modal-footer'>
         <button onclick='clearFields()' class='btn btn-info border border-dark text-light' data-dismiss='modal'>Yes</button>
-        <a href='pd.php' class='btn btn-light border border-primary text-primary'>No</a>
+        <a href='index.php' class='btn btn-light border border-primary text-primary'>No</a>
       </div>
     </div>
   </div>

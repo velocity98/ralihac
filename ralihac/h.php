@@ -14,12 +14,11 @@ include 'includes/nav.php';
           $query =
           ("SELECT hack_db.*, user_db.user_username FROM hack_db
             LEFT JOIN user_db ON hack_db.user_id = user_db.user_id
-            WHERE hack_db.hack_id = ? AND hack_archive = ? AND hack_status = ?;
+            WHERE hack_db.hack_id = ? AND hack_archive = ?;
           ");
           $flag = 0;
-          $status = 'approved';
           $stmt = $db->prepare($query);
-          $stmt->bind_param('iis', $hackId, $flag, $status);
+          $stmt->bind_param('ii', $hackId, $flag);
           $stmt->execute();
           $stmtResult = $stmt->get_result();
 
@@ -37,8 +36,8 @@ include 'includes/nav.php';
     </div>
     <div class='col-md-4 col-12 title-size'>
 
-      <h1><b><?php echo $row['hack_name']?></b></h1>
-      <h5 class='text-info'><?php echo $row['hack_category']?></h5>
+      <h1 id='hackNameModify'><b><?php echo $row['hack_name']?></b></h1>
+      <h5 id='hackCategoryModify' class='text-info'><?php echo $row['hack_category']?></h5>
       <h5 class='text-secondary'>Uploaded By: <?php echo $row['user_username']?></h5>
       <div>
           <h5 class='d-inline text-secondary'><?php echo date_format(date_create($row['hack_date']), "m-d-Y")?></h5>
@@ -52,9 +51,7 @@ include 'includes/nav.php';
 
       <hr />
       <div class='textbox-custom overflow-auto'>
-        <h6><?php echo nl2br($row['hack_description'])?></h6>
-
-        </p>
+        <h6 id='hackDescriptionModify'><?php echo nl2br($row['hack_description'])?></h6>
       </div>
 
       <hr />

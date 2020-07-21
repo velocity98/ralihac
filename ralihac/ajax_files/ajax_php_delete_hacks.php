@@ -9,5 +9,4 @@
         $stmt->execute();
         $stmt->close();
     endif;
-    echo $hackId;
 ?>
