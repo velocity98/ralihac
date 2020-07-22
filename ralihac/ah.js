@@ -101,11 +101,12 @@ $(document).ready(function (e) { // Ajax call for Image
         success: function(data)
           {
             if (data == 'explicit'){
-              // modal for explicity
+                $('#explicitModal').modal('show');
             }
             else if (data != 'uploaded'){
               $("#message").html(data);
             }else if (data == 'uploaded'){
+              // success modal
               $('#modalImage').modal('show');
             }
 

@@ -5,29 +5,11 @@ if (is_logged_in_user() == false){
 }
 include 'includes/head.php';
 include 'includes/nav.php';
+include 'includes/successHackModal.php';
+include 'includes/explicitModal.php';
 $categorydb = ("SELECT * FROM category_db ORDER BY category_name");
 $categoryquery = $db->query($categorydb);
 ?>
-<div class='modal fade' id='modalImage' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
-  <div class='modal-dialog modal-dialog-centered' role='document'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <h5 class='modal-title text-success'><i class='fas fa-check-circle'></i> Success!</h5>
-      </div>
-      <div class='modal-body'>
-        <p>
-          Hooray! You have created your very own Life Hack. Now what? Unfortunately your Life Hack must first be verfied by Ralihac before showing it to the world.
-        </p>
-        <h5>Would you like to Create another one?</h5>
-      </div>
-      <div class='modal-footer'>
-        <button onclick='clearFields()' class='btn btn-info border border-dark text-light' data-dismiss='modal'>Yes</button>
-        <a href='index.php' class='btn btn-light border border-primary text-primary'>No</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="container">
   <div class="row row-margin">
     <div class="col-md-3">
