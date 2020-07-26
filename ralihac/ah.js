@@ -91,6 +91,7 @@ $(document).ready(function (e) { // Ajax call for Image
           return false;
       }
     }
+      $('#loadingModal').modal('show');
       $.ajax({
         url: "./ajax_files/ajax_php_image.php",
         type: "POST",
@@ -101,13 +102,19 @@ $(document).ready(function (e) { // Ajax call for Image
         success: function(data)
           {
             if (data == 'explicit'){
+                $('#loadingModal').modal('hide');
                 $('#explicitModal').modal('show');
+
             }
             else if (data != 'uploaded'){
+                $('#loadingModal').modal('hide');
               $("#message").html(data);
+
             }else if (data == 'uploaded'){
               // success modal
+                $('#loadingModal').modal('hide');
               $('#modalImage').modal('show');
+
             }
 
           }
@@ -137,6 +144,7 @@ $(document).ready(function (e) { // Ajax call for Image
     });
   });
 
+// find previewing in edit hack and replace it
   function imageIsLoaded(e) {
     $("#file").css("color","green");
     $('#image_preview').css("display", "block");

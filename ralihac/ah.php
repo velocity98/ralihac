@@ -7,6 +7,7 @@ include 'includes/head.php';
 include 'includes/nav.php';
 include 'includes/successHackModal.php';
 include 'includes/explicitModal.php';
+include 'includes/loadingModal.php';
 $categorydb = ("SELECT * FROM category_db ORDER BY category_name");
 $categoryquery = $db->query($categorydb);
 ?>

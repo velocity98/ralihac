@@ -57,7 +57,7 @@ include 'includes/nav.php';
                 <div class='mb-2'>
                     <h5><b><?php echo $row['hack_name']?></b></h5>
                 </div>
-                <div class='card-text my-auto'>
+                <div class='card-text my-auto text-muted'>
                       <?php echo nl2br($row['hack_description']);?>
 
                 </div>

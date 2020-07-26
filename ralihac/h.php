@@ -2,8 +2,8 @@
 require_once 'system/initialize.php';
 include 'includes/head.php';
 include 'includes/nav.php';
+include 'includes/loadingModal.php';
  ?>
-
 <div class='container text-break'>
   <div class='row row-margin mt-5 ml-1 mr-1'>
 

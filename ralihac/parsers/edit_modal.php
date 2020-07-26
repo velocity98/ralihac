@@ -22,6 +22,26 @@ ob_start();
           <h5 class='text-info d-inline'><span class='fas fa-edit'></span> Edit Life Hack</h5>
         </div>
         <form method="post" onsubmit="return editHack(<?php echo $row['hack_id']; ?>)" id="submitForm" name="editForm">
+
+              <div class="form-group">
+
+                  <div class='justify-content-center'>
+                      <div id="image_preview"><img id="editImage" class="img-fluid widget " src="<?php echo trim_image_string($row['hack_image'])?>" /></div>
+                  </div>
+                    <br />
+                        <div id="selectImage">
+                              <label for="image" class="col-form-label">Hack Image:</label>
+                          <div class="custom-file" id='customFile'>
+
+                            <label class="text-dark custom-file-label" for="file" id='fileText'>Select Your Image</label>
+                            <input type="file" name="file" class="custom-file-input" id="file" />
+                          </div>
+                          <small id='noImage' class='text-danger'></small>
+                          <div id="message"></div>
+                        </div>
+
+            </div>
+
         <div class="form-group">
           <label for="recipient-name" class="col-form-label">Hack Name:</label>
           <input type="text" value='<?php echo $row['hack_name']?>' class="form-control" id="hackName" name='hackName' />

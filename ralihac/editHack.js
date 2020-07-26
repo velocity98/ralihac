@@ -63,7 +63,7 @@ function editHack(hackId){ //reusable
         return false;
     }
       }
-
+// put photo ajax here before upload
       $.ajax({
         url: './ajax_files/ajax_php_edit_hacks.php',
         type: 'POST',

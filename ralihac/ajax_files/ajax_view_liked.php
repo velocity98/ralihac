@@ -23,7 +23,7 @@ require_once '../system/initialize.php';
           <div class='mb-2'>
               <h5><b>".$row['hack_name']."</b></h5>
           </div>
-          <div class='card-text my-auto'>
+          <div class='card-text my-auto text-muted'>
                 ".nl2br($row['hack_description'])."
 
           </div>
