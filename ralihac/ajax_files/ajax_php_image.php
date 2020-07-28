@@ -3,8 +3,8 @@ require_once "../system/initialize.php";
 require_once '../vendor/autoload.php';
 use Google\Cloud\Vision\VisionClient;
 
-if(isset($_FILES["file"]["type"]))
-{
+if(isset($_FILES["file"]["type"])){
+  
 $validextensions = array("jpeg", "jpg");
 $temporary = explode(".", $_FILES["file"]["name"]);
 $file_extension = end($temporary);

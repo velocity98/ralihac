@@ -26,7 +26,7 @@ ob_start();
               <div class="form-group">
 
                   <div class='justify-content-center'>
-                      <div id="image_preview"><img id="editImage" class="img-fluid widget " src="<?php echo trim_image_string($row['hack_image'])?>" /></div>
+                      <div id="image_preview"><img id="editImage" class="img-fluid widget" src="<?php echo trim_image_string($row['hack_image'])?>" style='width: 100%; height: auto;'/></div>
                   </div>
                     <br />
                         <div id="selectImage">

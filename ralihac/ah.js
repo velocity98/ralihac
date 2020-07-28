@@ -155,9 +155,7 @@ $(document).ready(function (e) { // Ajax call for Image
 
   $(".custom-file-input").on("change", function() {
     var fileName = $(this).val().split("\\").pop();
-    if (fileName.length > 10){
-      fileName = fileName.substring(0,21) + '...';
-    }
+
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
   });
 });
