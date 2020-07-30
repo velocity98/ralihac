@@ -64,7 +64,9 @@ ob_start();
           <textarea class="form-control" id='hackDescrption' rows="6" name='hackDescrption'><?php echo $row['hack_description']?></textarea>
           <small id="hackDescrptionError" class="form-text val_error text-danger w-100"></small>
         </div>
+        <div class="spinner-border text-info float-left" id="loading" style='display: none' role="status"></div>
         <div class='d-inline float-right'>
+
           <button type='submit' class='btn btn-info border border-dark'><i class='fas fa-check-circle'></i> Save</button>
           <button class='btn btn-outline-danger' data-dismiss="modal">Cancel</button>
         </div>

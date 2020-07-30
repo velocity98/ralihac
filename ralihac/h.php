@@ -8,7 +8,7 @@ include 'includes/loadingModal.php';
 <div class='container text-break'>
   <div class='row row-margin mt-5 ml-1 mr-1'>
 
-    <div class='col-md-8 col-12 black-container'>
+    <div class='col-md-8 col-12 black-container widget'>
       <?php
         if (isset($_GET['hid'])){
           $hackId = sanitize($_GET['hid']);

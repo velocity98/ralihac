@@ -67,6 +67,7 @@ function editHack(hackId){ //reusable
       var form = document.getElementById('submitForm');
       var formData = new FormData(form);
       formData.append('hackId', hackId);
+        $('#loading').css('display', 'block');
       $.ajax({
         url: './ajax_files/ajax_php_edit_hacks.php',
         type: 'POST',
@@ -76,13 +77,31 @@ function editHack(hackId){ //reusable
         processData: false,
         cache: false,
         success: function(response){
+
+          if (response == 'explicit'){
+            // explcit content found
+              $('#loading').css('display', 'none');
+              $('#explicitModal').modal('show');
+
+          }else if (Object.keys(response).length > 1){
+            // success modal
+              $('#loading').css('display', 'none');
+              $('#modalImage').modal('show');
+
+          }else{
+            // buffers all errors from ajax call
+                $('#loading').css('display', 'none');
+                $("#message").html(response);
+
+            }
+
           // $('#hackNameModify').html('<b>'+response[0].name+'</b>');
           // $('#hackCategoryModify').html(response[0].category);
           // $('#hackDescriptionModify').html(response[0].description);
           // $(function () {
           //    $('#editModal').modal('toggle');
           // });
-          alert(response);
+
         }
       });
   }

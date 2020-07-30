@@ -30,6 +30,10 @@
 
       if(isset($_FILES["file"]["type"])){
 
+        $validextensions = array("jpeg", "jpg");
+        $temporary = explode(".", $_FILES["file"]["name"]);
+        $file_extension = end($temporary);
+
         if ((($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 1200000) && in_array($file_extension, $validextensions)) {
 
           if ($_FILES["file"]["error"] > 0){
@@ -89,7 +93,8 @@
                 $stmt->execute();
                 $stmt->close();
                 move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
-                return print ('uploaded');
+
+                return print_r(json_encode($results));
 
               }
 

@@ -101,6 +101,7 @@ $(document).ready(function (e) { // Ajax call for Image
         processData:false,
         success: function(data)
           {
+
             if (data == 'explicit'){
                 $('#loadingModal').modal('hide');
                 $('#explicitModal').modal('show');
