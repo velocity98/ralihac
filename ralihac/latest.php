@@ -1,0 +1,33 @@
+<?php
+require_once 'system/initialize.php';
+include 'includes/head.php';
+include 'includes/nav.php';
+?>
+<div class="container">
+  <div class="row row-margin">
+    <div class="col-md-3">
+      <?php
+       include 'includes/randWidget.php';
+      ?>
+    </div>
+
+    <div class='col-md-9'>
+      <div class='d-flex'>
+        <div class='mr-auto'>
+          <legend>
+            Latest Hacks
+          </legend>
+        </div>
+      </div>
+      <hr />
+      <div class='container '>
+        <div class='row view-latest'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php
+include 'includes/footer.php';
+?>
+<script type='text/javascript' src='latest.js'></script>

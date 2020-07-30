@@ -1,0 +1,9 @@
+<?php
+  require_once '../system/initialize.php';
+  $query = $db->query("SELECT * FROM like_db
+    LEFT JOIN hack_db
+    ON like_db.hack_id = hack_db.hack_id
+    WHERE like_db.user_id = $user_id AND hack_db.hack_archive = 0 AND hack_db.hack_status = 'approved' ");
+  $number_of_rows = mysqli_num_rows($query);
+  return print("(".$number_of_rows.")");
+?>
