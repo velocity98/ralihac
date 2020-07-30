@@ -77,16 +77,36 @@ function editHack(hackId){ //reusable
         processData: false,
         cache: false,
         success: function(response){
+          var parseJSON = JSON.parse(response);
 
           if (response == 'explicit'){
             // explcit content found
               $('#loading').css('display', 'none');
               $('#explicitModal').modal('show');
 
-          }else if (Object.keys(response).length > 1){
+          }else if (Object.keys(parseJSON).length > 1){
             // success modal
+
               $('#loading').css('display', 'none');
-              $('#modalImage').modal('show');
+              $('#editModal').modal('toggle');
+
+
+            if(Object.keys(parseJSON).length == 3){
+
+              $('#hackNameModify').html('<b>'+parseJSON.name+'</b>');
+              $('#hackCategoryModify').html(parseJSON.category);
+              $('#hackDescriptionModify').html(parseJSON.description);
+
+            }else if (Object.keys(parseJSON).length == 4) {
+
+              $('#hackNameModify').html('<b>'+parseJSON.name+'</b>');
+              $('#hackCategoryModify').html(parseJSON.category);
+              $('#hackDescriptionModify').html(parseJSON.description);
+              $('#image').attr('src',parseJSON.image);
+
+            }
+
+              $('#updatedHackModal').modal('show');
 
           }else{
             // buffers all errors from ajax call
@@ -95,12 +115,8 @@ function editHack(hackId){ //reusable
 
             }
 
-          // $('#hackNameModify').html('<b>'+response[0].name+'</b>');
-          // $('#hackCategoryModify').html(response[0].category);
-          // $('#hackDescriptionModify').html(response[0].description);
-          // $(function () {
-          //    $('#editModal').modal('toggle');
-          // });
+
+
 
         }
       });

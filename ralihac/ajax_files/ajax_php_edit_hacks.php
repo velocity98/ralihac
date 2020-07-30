@@ -18,13 +18,13 @@
           $stmt->execute();
           $stmt->close();
 
-        $results[] = array(
+        $results = array(
           'name' => $hackName,
           'category' => $hackCategory,
           'description' => nl2br($hackDescription)
           );
 
-        return print_r(json_encode($results));
+        echo (json_encode($results));
 
     }else{ // update hack with picture
 
@@ -94,7 +94,16 @@
                 $stmt->close();
                 move_uploaded_file($sourcePath,$targetPath); // Moving Uploaded file
 
-                return print_r(json_encode($results));
+
+
+                $results = array(
+                  'name' => $hackName,
+                  'category' => $hackCategory,
+                  'description' => nl2br($hackDescription),
+                  'image' => trim_image_string($targetPath) // one dot for directory
+                  );
+
+                echo (json_encode($results));
 
               }
 

@@ -4,6 +4,7 @@ include 'includes/head.php';
 include 'includes/nav.php';
 include 'includes/explicitModal.php';
 include 'includes/loadingModal.php';
+include 'includes/updatedHackModal.php';
  ?>
 <div class='container text-break'>
   <div class='row row-margin mt-5 ml-1 mr-1'>
@@ -31,7 +32,7 @@ include 'includes/loadingModal.php';
       ?>
 
         <div class="d-flex h-100 justify-content-center" >
-          <img class='img-responsive' src="<?php echo trim_image_string($row['hack_image'])?>" style="height: 100%; max-width:100%; z-index: 2;">
+          <img class='img-responsive' id='image' src="<?php echo trim_image_string($row['hack_image'])?>" style="height: 100%; max-width:100%; z-index: 2;">
         </div>
 
     </div>
