@@ -3,9 +3,9 @@ require_once '../system/initialize.php';
 if (isset($_POST)){
     $username = sanitize($_POST['username']);
     $password = sanitize($_POST['password']);
-    $userquery = ("SELECT * FROM user_db WHERE user_username = ? ");
+    $userquery = ("SELECT * FROM user_db WHERE (user_username = ? OR user_email = ?) ");
     $stmt = $db->prepare($userquery);
-    $stmt->bind_param('s', $username);
+    $stmt->bind_param('ss', $username, $username);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();

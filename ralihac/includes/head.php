@@ -11,6 +11,8 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel='stylesheet' href='./css/owl.carousel.min.css' />
 <link rel='stylesheet' href='./css/owl.theme.default.min.css' />
+<link rel='stylesheet' href='./css/emojionearea.min.css' />
+<link rel='stylesheet' href='./css/emojione.min.css' />
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel='stylesheet' href='ralihac.css' />

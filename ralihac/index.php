@@ -36,7 +36,7 @@ include 'includes/nav.php';
              <div class="owl-stage-outer">
                <div class="owl-stage">
            <?php
-             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0) ORDER BY hack_id DESC LIMIT 6");
+             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0) ORDER BY hack_date DESC LIMIT 6");
 
            ?>
            <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -119,7 +119,7 @@ include 'includes/nav.php';
             <div class="owl-stage-outer">
               <div class="owl-stage">
           <?php
-            $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_id DESC LIMIT 6");
+            $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_date DESC LIMIT 6");
 
           ?>
           <?php while ($row = mysqli_fetch_assoc($conn)):
@@ -137,9 +137,8 @@ include 'includes/nav.php';
                 <div class='mb-2'>
                     <h5><b><?php echo $row['hack_name']?></b></h5>
                 </div>
-                <div class='card-text my-auto text-muted'>
-                      <?php echo nl2br($row['hack_description']);?>
-
+                <div class='card-text my-auto '>
+                    <?php echo nl2br($row['hack_description']);?>
                 </div>
               </div>
               <div class='card-footer'>

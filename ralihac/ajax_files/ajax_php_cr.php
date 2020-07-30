@@ -9,6 +9,7 @@ if (isset($_POST)){
   $confirmPassword = trim($confirmPassword);
   $email = sanitize($_POST['email']);
   $email = trim($email);
+  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
   $hash = password_hash($confirmPassword, PASSWORD_DEFAULT);
   $userCreate = date("Y-m-d H:i:s");
   $userHacks = '[]';
@@ -24,6 +25,13 @@ if (isset($_POST)){
         $errorArray[] = array('error' => 'Email has already been used');
       }
     }
+
+
+// Validate e-mail
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorArray[] = array('error' => 'Email is not valid');
+      }
+
     if(count($errorArray) > 0){
       echo json_encode($errorArray);
     }

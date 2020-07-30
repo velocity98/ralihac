@@ -96,6 +96,10 @@ function editHack(hackId){ //reusable
               $('#hackNameModify').html('<b>'+parseJSON.name+'</b>');
               $('#hackCategoryModify').html(parseJSON.category);
               $('#hackDescriptionModify').html(parseJSON.description);
+              $(".textbox-custom ").each(function(){
+                  var preview = emojione.toImage(jQuery(this).html());
+                  jQuery(this).html(preview);
+              });
 
             }else if (Object.keys(parseJSON).length == 4) {
 
@@ -103,6 +107,10 @@ function editHack(hackId){ //reusable
               $('#hackCategoryModify').html(parseJSON.category);
               $('#hackDescriptionModify').html(parseJSON.description);
               $('#image').attr('src',parseJSON.image);
+              $(".textbox-custom ").each(function(){
+                  var preview = emojione.toImage(jQuery(this).html());
+                  jQuery(this).html(preview);
+              });
 
             }
 
@@ -155,3 +163,14 @@ function editHack(hackId){ //reusable
     $('#editImage').attr('src', e.target.result);
     $('#editImage').css('border', 'none');
   };
+
+  $(document).ready(function() {
+      $('textarea').emojioneArea({
+        pickerPosition: 'bottom'
+      });
+
+  });
+  $(".textbox-custom ").each(function(){
+      var preview = emojione.toImage(jQuery(this).html());
+      jQuery(this).html(preview);
+  });

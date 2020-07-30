@@ -1,7 +1,7 @@
 <?php
 require_once '../system/initialize.php';
 
-  $connection = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_date DESC");
+  $connection = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0 AND user_id = $user_id) ORDER BY hack_date DESC");
   $output = '';
  while ($row = mysqli_fetch_assoc($connection)){
   $hack_id = $row['hack_id'];
@@ -52,7 +52,7 @@ require_once '../system/initialize.php';
     </div>";
 }
 if ($output == ''){
-  echo $output .= "<span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> You haven't saved any hacks yet</span>";
+  echo $output .= "<span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i> You haven't uploaded your Life Hacks yet!</span>";
 }else{
   echo $output;
 }

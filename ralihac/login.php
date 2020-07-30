@@ -21,7 +21,7 @@ include 'includes/nav.php';
                  <div class="input-group-prepend">
                    <span class="input-group-text bg-primary"><i class="fas fa-user" style="color:white"></i></span>
                  </div>
-                   <input type="text" class="form-control" placeholder="Username" aria-describedby="user_error" name="username" value="">
+                   <input type="text" class="form-control" placeholder="Username or Email" aria-describedby="user_error" name="username" value="">
                    <small id="user_error" class="form-text val_error text-danger w-100 text-left"></small>
 
                </div>

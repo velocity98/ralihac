@@ -143,3 +143,14 @@ function editHackModal(hackId){
     }
   });
 }
+
+$(document).ready(function() {
+    $('textarea').emojioneArea({
+      pickerPosition: 'bottom'
+    });
+  });
+
+  $(".textbox-custom").each(function(){
+      var preview = emojione.toImage(jQuery(this).html());
+      jQuery(this).html(preview);
+  });

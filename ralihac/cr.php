@@ -36,7 +36,7 @@ include 'includes/nav.php';
               </div>
 
               <div class="input-group form-group">
-                <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                <input type="text" class="form-control" placeholder="Email" id="email" name="email">
                 <small id="email_error" class="form-text val_error text-danger w-100"></small>
               </div>
 
