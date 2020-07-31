@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/ralihac/system/initialize.php';
+require_once './system/initialize.php';
 if (is_logged_in_user() == true){
   header('location: index.php');
 }
@@ -42,7 +42,7 @@ include 'includes/nav.php';
                 <a href='cr.php'>Create new account</a>
              </div>
              <div class='text-left'>
-                    <a href='#'>Forgot password</a>
+                    <a href='rp.php'>Forgot password</a>
              </div>
            </div>
      </div>

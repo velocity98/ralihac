@@ -6,9 +6,11 @@ include 'includes/nav.php';
 <div class="container">
   <div class="row row-margin">
     <div class="col-md-3">
-      <?php
-       include 'includes/randWidget.php';
-      ?>
+      <div class='stick'>
+        <?php
+         include 'includes/randWidget.php';
+        ?>
+       </div>
     </div>
 
     <div class='col-md-9'>
