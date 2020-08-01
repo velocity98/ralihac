@@ -52,5 +52,10 @@ if (isset($_POST)){
       $successArray[] = array('success' => 'Login');
       echo json_encode($successArray);
     }
+}else{
+
+  header('Location: ../index.php');
+  exit;
+
 }
  ?>

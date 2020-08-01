@@ -123,9 +123,6 @@ function editHack(hackId){ //reusable
 
             }
 
-
-
-
         }
       });
   }

@@ -8,5 +8,11 @@
         $stmt->bind_param('ii', $flag, $hackId);
         $stmt->execute();
         $stmt->close();
+    else:
+
+          header('Location: ../index.php');
+          exit;
+
     endif;
+
 ?>
