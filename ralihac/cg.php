@@ -23,8 +23,8 @@ include 'includes/nav.php';
        $stmt->execute();
        $stmtResult = $stmt->get_result();
         if($stmtResult->num_rows == 0){
-          echo 'error';
-        }
+          echo "<br /><span class='no-item text-danger text-justify d-block col-md-12'><i class='fas fa-exclamation-circle'></i>Category doesn't exist!</span>";
+          }
         else{
         ?>
       <legend>
@@ -34,10 +34,11 @@ include 'includes/nav.php';
       <div class='container'>
         <div class='row'>
           <?php
-            $conn = ("SELECT * FROM hack_db WHERE (hack_category = ? AND hack_archive = ?) ORDER BY hack_id DESC");
+            $conn = ("SELECT * FROM hack_db WHERE hack_category = ? AND hack_archive = ? ORDER BY hack_date DESC");
             $flag = 0;
             $stmt = $db->prepare($conn);
-            $stmt->bind_param('si', $categoryName, $flag);
+            $capCat =  ucwords($categoryName);
+            $stmt->bind_param('si', $capCat, $flag);
             $stmt->execute();
             $stmtResult = $stmt->get_result();
             if($stmtResult->num_rows == 0):
