@@ -9,7 +9,7 @@ include 'includes/nav.php';
  <div class="container">
        <div class="d-flex row justify-content-center h-100" style='margin-top: 5rem;'>
            <div class='col-md-4 text-center'>
-               <img src='images/siteimages/RalihacLogo.png' style='height: 20%; margin-bottom: 5%'>
+               <img src='images/siteimages/RalihacLogo.png' style='height: 7rem; margin-bottom: 5%'>
                <h5 style='margin-bottom: 10%'>Ralihac Authentication</h5>
                <table id='tableHolder' style='width: 100%; margin-bottom: 4%'>
                  <tbody class='text-danger text-justify'>

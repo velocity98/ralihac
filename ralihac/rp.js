@@ -23,27 +23,32 @@ function forgotValidate(){
     data: serializedData,
     success: function(data)
       {
-      // $('#tableHolder tbody').empty();
-      //  var length = data.length;
-      //    for(i = 0; i < length; i++){
-      //        var error = data[i].error;
-      //        var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
-      //        $('#tableHolder tbody').append(tr);
-      //        $('#tableHolder tbody tr td div').css({
-      //          'margin-bottom' : '10px',
-      //          'background-color' : '#FDA0A0',
-      //          'border-radius' : '3px',
-      //          'border-style' : 'solid',
-      //          'border-color' : 'red',
-      //          'border-width' : '1px',
-      //        });
-      //    }
-      //    // remember to add error and success json objects
-      //   if (data[0].success == 'Login'){
-      //     $('#tableHolder tbody').empty();
-      //     // try to make this a modal
-      //   }
-      alert(data);
+      $('#tableHolder tbody').empty();
+       var length = data.length;
+         for(i = 0; i < length; i++){
+             var error = data[i].error;
+             var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
+             $('#tableHolder tbody').append(tr);
+             $('#tableHolder tbody tr td div').css({
+               'margin-bottom' : '10px',
+               'background-color' : '#FDA0A0',
+               'border-radius' : '3px',
+               'border-style' : 'solid',
+               'border-color' : 'red',
+               'border-width' : '1px',
+             });
+         }
+         // remember to add error and success json objects
+        if (data[0].success == 'Mail'){
+          $('#tableHolder tbody').empty();
+          $('.connect').slideUp(600, function() {
+            $( ".transition" ).remove();
+            var successTag = '<div class="text-success"> <h2 class="my-auto"><span class="fas fa-check-circle"></span> Success!</h2> <p>You can now check your email for the Password Reset Request</p><a href="index.php" class="btn btn-outline-info">Back to Home</a></div>';
+            $(".connect").append(successTag);
+            $(".connect").fadeIn();
+          });
+        }
+
      }
   });
   return false;

@@ -42,7 +42,7 @@ include 'includes/updatedHackModal.php';
       <h5 id='hackCategoryModify' class='text-info'><?php echo $row['hack_category']?></h5>
       <h5 class='text-secondary'>Uploaded By: <?php echo (!empty($row['user_username']) ? $row['user_username'] : 'Ralihac' )?></h5>
       <div>
-          <h5 class='d-inline text-secondary'><?php echo date_format(date_create($row['hack_date']), "m-d-Y")?></h5>
+          <h5 class='d-inline text-secondary'><?php echo timeAgo($row['hack_date'])?></h5>
           <?php if ($user_id == $row['user_id']): ?>
           <div class='float-right'>
               <button onclick='editHackModal(<?php echo $row['hack_id']?>)'  class='btn btn-outline-secondary btn-sm'>Edit</button>

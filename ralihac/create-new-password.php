@@ -26,7 +26,7 @@ include 'includes/nav.php';
 
                     if (ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false): // view html form if statement doesnt return false
                       ?>
-                      <img src='images/siteimages/RalihacLogo.png' style='height: 20%; margin-bottom: 5%'>
+                      <img src='images/siteimages/RalihacLogo.png' style='height: 7rem; margin-bottom: 5%'>
                       <h5 style='margin-bottom: 4%'>Create New Password</h5>
 
                       <table id='tableHolder' style='width: 100%; margin-bottom: 4%'>
