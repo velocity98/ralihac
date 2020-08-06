@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info"  style=' box-shadow: 0 3px 3px -3px rgba(0,0,0,.6);'  >
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-info"  style=' box-shadow: 0 3px 3px -3px rgba(0,0,0,.6);'>
   <div class="container" >
     <a class="navbar-brand" href="index.php" ><img src='images/siteimages/RalihacLogo.png' style='max-height: 3rem; border: solid; border-color: white; border-radius: 100%; border-width: 2px'/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,14 +25,15 @@
             $i = 0;
              while ($row = mysqli_fetch_assoc($categoryQuery)):
             ?>
-          <a class="dropdown-item" href="cg.php?category=<?php echo strtolower($row['category_name'])?>"><i class="fa fa-<?php echo $iconArray[$i]?>" aria-hidden="true" style='width: auto'></i> <?php echo $row['category_name']?></a>
+          <a class="dropdown-item" href="cg.php?category=<?php echo strtolower($row['category_name']); ?>"><i class="fa fa-<?php echo $iconArray[$i]; ?>" aria-hidden="true" style='width: auto'></i> <?php echo $row['category_name']; ?></a>
             <?php
-            $i++;
-            endwhile;?>
+              $i++;
+              endwhile;
+            ?>
         </div>
         </li>
         <li class='nav-item'>
-          <a href='<?php echo (is_logged_in_user()) == false ? 'login.php' : 'ah.php' ?>' class='nav-link'>Create Hack</a>
+          <a href='<?php echo (is_logged_in_user()) == false ? 'login.php' : 'ah.php'; ?>' class='nav-link'>Create Hack</a>
         </li>
         <li class='nav-item'>
           <a href='trd.php' class='nav-link'>Trending</a>
@@ -62,7 +63,6 @@
          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fas fa-user"></i> Hello <?php echo $username?>
          </a>
-
          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
            <a class="dropdown-item" href='profile.php'>Profile</a>
            <a class="dropdown-item" href="ah.php">Add Hack</a>
@@ -73,10 +73,7 @@
        <?php endif; ?>
       </ul>
     </div>
-
-
   </div>
-
 </nav>
 
 <div id='information'>

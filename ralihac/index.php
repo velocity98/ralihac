@@ -37,9 +37,7 @@ include 'includes/nav.php';
                <div class="owl-stage">
            <?php
              $conn = $db->query("SELECT * FROM hack_db WHERE (hack_featured = 1 AND hack_archive = 0) ORDER BY hack_date DESC LIMIT 6");
-
-           ?>
-           <?php while ($row = mysqli_fetch_assoc($conn)):
+            while ($row = mysqli_fetch_assoc($conn)):
              $hack_id = $row['hack_id'];
              $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
              $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
@@ -120,9 +118,7 @@ include 'includes/nav.php';
               <div class="owl-stage">
           <?php
             $conn = $db->query("SELECT * FROM hack_db WHERE (hack_archive = 0) ORDER BY hack_date DESC LIMIT 6");
-
-          ?>
-          <?php while ($row = mysqli_fetch_assoc($conn)):
+            while ($row = mysqli_fetch_assoc($conn)):
             $hack_id = $row['hack_id'];
             $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
             $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");
@@ -206,8 +202,7 @@ include 'includes/nav.php';
                 GROUP BY like_db.hack_id
                 ORDER BY count(*) DESC
                 LIMIT 6");
-          ?>
-          <?php while ($row = mysqli_fetch_assoc($connection)):
+            while ($row = mysqli_fetch_assoc($connection)):
             $hack_id = $row['hack_id'];
             $likeQuery = $db->query("SELECT * FROM like_db WHERE hack_id = $hack_id");
             $saveQuery = $db->query("SELECT * FROM save_db WHERE hack_id = $hack_id");

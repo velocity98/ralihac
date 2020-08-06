@@ -24,8 +24,6 @@ function sanitize($wrong){
   return htmlentities($wrong, ENT_QUOTES, "UTF-8");
 }
 
-
-
 function is_logged_in(){
   if(isset($_SESSION['SBAdmin']) && $_SESSION['SBAdmin'] > 0){
     return true;
@@ -53,7 +51,7 @@ function timeAgo($time_ago)
 {
     $time_ago = strtotime($time_ago);
     $cur_time   = time();
-    $time_elapsed   = $cur_time - $time_ago;
+    $time_elapsed  = $cur_time - $time_ago;
     $seconds    = $time_elapsed ;
     $minutes    = round($time_elapsed / 60 );
     $hours      = round($time_elapsed / 3600);
@@ -115,5 +113,3 @@ function timeAgo($time_ago)
         }
     }
 }
-
- ?>
