@@ -64,6 +64,8 @@ if (isset($_POST['password']) && isset($_POST['confirmPassword'])){
                 $stmt->execute();
 
                 // reset password Successful!
+                $successArray[] = array('success' => 'reset');
+                return print (json_encode($successArray));
 
               }
 

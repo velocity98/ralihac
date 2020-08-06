@@ -15,6 +15,7 @@ function forgotValidate(){
         email.focus();
         return false;
   }
+  $('#loadingModal').modal('toggle'); // start buffer
   var serializedData = $('#forgotForm').serialize();
   $.ajax({
     url: "./ajax_files/ajax_php_forgot_password.php",
@@ -23,6 +24,7 @@ function forgotValidate(){
     data: serializedData,
     success: function(data)
       {
+      $('#loadingModal').modal('toggle'); // buffer finished
       $('#tableHolder tbody').empty();
        var length = data.length;
          for(i = 0; i < length; i++){

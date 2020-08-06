@@ -5,14 +5,13 @@ if (is_logged_in_user() == true){
 }
 include 'includes/head.php';
 include 'includes/nav.php';
+include 'includes/loadingModal.php';
  ?>
  <div class="container">
 
 
        <div class="d-flex row justify-content-center align-items-center h-100" style='margin-top: 5rem;'>
            <div class='col-md-4 text-center '>
-
-
 
 
                   <img src='images/siteimages/RalihacLogo.png' style='height: 7rem; margin-bottom: 5%' />

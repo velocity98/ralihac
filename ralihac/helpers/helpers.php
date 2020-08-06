@@ -63,7 +63,7 @@ function timeAgo($time_ago)
     $years      = round($time_elapsed / 31207680 );
     // Seconds
     if($seconds <= 60){
-        return "just now";
+        return "Just now";
     }
     //Minutes
     else if($minutes <=60){
@@ -85,7 +85,7 @@ function timeAgo($time_ago)
     //Days
     else if($days <= 7){
         if($days==1){
-            return "yesterday";
+            return "1 day ago";
         }else{
             return "$days days ago";
         }

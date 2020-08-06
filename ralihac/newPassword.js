@@ -59,34 +59,40 @@ function resetValidate(){
     return false;
 
   }else{
-
+    $('#loadingModal').modal('toggle'); // start buffer
     var serializedData = $('#resetForm').serialize();
     $.ajax({
       url: "./ajax_files/ajax_php_reset_password.php",
       type: "POST",
+      dataType: 'JSON',
       data: serializedData,
       success: function(data)
         {
-        // $('#tableHolder tbody').empty();
-        //  var length = data.length;
-        //    for(i = 0; i < length; i++){
-        //        var error = data[i].error;
-        //        var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
-        //        $('#tableHolder tbody').append(tr);
-        //        $('#tableHolder tbody tr td div').css({
-        //          'margin-bottom' : '10px',
-        //          'background-color' : '#FDA0A0',
-        //          'border-radius' : '3px',
-        //          'border-style' : 'solid',
-        //          'border-color' : 'red',
-        //          'border-width' : '1px',
-        //        });
-        //    }
-        //   if (data[0].success == 'Login'){
-        //     $('#tableHolder tbody').empty();
-        //     window.location = "index.php";
-        //   }
-        alert(data);
+        $('#loadingModal').modal('toggle'); // buffer finished
+        $('#tableHolder tbody').empty();
+         var length = data.length;
+           for(i = 0; i < length; i++){
+               var error = data[i].error;
+               var tr = '<tr><td><div class="container"><i class="fas fa-exclamation-circle"></i><span class="align-middle" style="padding:5px">'+error+'</span></div></td></tr>';
+               $('#tableHolder tbody').append(tr);
+               $('#tableHolder tbody tr td div').css({
+                 'margin-bottom' : '10px',
+                 'background-color' : '#FDA0A0',
+                 'border-radius' : '3px',
+                 'border-style' : 'solid',
+                 'border-color' : 'red',
+                 'border-width' : '1px',
+               });
+           }
+           if (data[0].success == 'reset'){
+             $('#tableHolder tbody').empty();
+             $('.connect').slideUp(600, function() {
+               $( ".transition" ).remove();
+               var successTag = '<div class="text-success"> <h2 class="my-auto"><span class="fas fa-check-circle"></span> Success!</h2> <p>Your Password has been reset, go to the Login page to access your account!</p><a href="login.php" class="btn btn-outline-info">Login</a></div>';
+               $(".connect").append(successTag);
+               $(".connect").fadeIn();
+             });
+           }
       }
     });
     return false;
