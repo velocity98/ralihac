@@ -35,7 +35,9 @@ padding-bottom: 60px;
   clear: both;
 }
 
-
+span{
+  font-family: 'roboto';
+}
 
 textarea {
   resize: none;
